@@ -1,5 +1,6 @@
 # Google China
-#DOMAIN-SUFFIX,translate.googleapis.cn
+#DOMAIN-SUFFIX,services.googleapis.cn
+DOMAIN-SUFFIX,translate.googleapis.cn
 DOMAIN-SUFFIX,265.cn
 DOMAIN-SUFFIX,2mdn.net
 DOMAIN-SUFFIX,alt1-mtalk.google.cn
@@ -57,7 +58,8 @@ DOMAIN-SUFFIX,tools.l.google.cn
 DOMAIN-SUFFIX,update.googleapis.cn
 DOMAIN-SUFFIX,www-googletagmanager.l.google.cn
 DOMAIN-SUFFIX,www.gstatic.cn
-#DOMAIN-SUFFIX,translate.googleapis.com
+DOMAIN-SUFFIX,services.googleapis.com
+DOMAIN-SUFFIX,translate.googleapis.com
 DOMAIN-SUFFIX,265.com
 DOMAIN-SUFFIX,2mdn.net
 DOMAIN-SUFFIX,alt1-mtalk.google.com
