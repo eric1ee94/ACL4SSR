@@ -96,9 +96,9 @@ proxy-groups:
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
     name: PayPal
     Proxy:
-      - Proxy
       - DIRECT
     type: select
+    use: 守候
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TestFlight.png
     name: TestFlight
     Proxy:
