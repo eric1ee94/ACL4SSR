@@ -34,184 +34,154 @@ dns:
   listen: 0.0.0.0:1053
   nameserver: null
 external-controller: 127.0.0.1:9090
-proxy-groups:
-  - filter: null
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
-    name: Proxy
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-    include-all: true
-  - filter: 新加坡
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
-    name: Netflix
-    Proxy:
-      - Proxy
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
-    name: Youtube
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - filter: null
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
-    name: Spotify
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - filter: 台湾|DIRECT
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Bilibili.png
-    name: Bilibili
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - benchmark-timeout: 2
-    benchmark-url: http://cp.cloudflare.com/generate_204
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-    interval: 5
-    name: Telegram
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-    name: Twitter
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
-    name: Speedtest
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
-    name: PayPal
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TestFlight.png
-    name: TestFlight
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
-    name: Apple
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Voice.png
-    name: GoogleVoice
-    Proxy:
-      - DIRECT
-    type: select
-    use:
-     - 守候
-  - benchmark-timeout: 2
-    benchmark-url: http://cp.cloudflare.com/generate_204
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Drive.png
-    interval: 120
-    name: GoogleDrive
-    Proxy:
-      - Proxy
-    type: select
-    url: http://cp.cloudflare.com/generate_204
-    use:
-     - 守候
-  - benchmark-timeout: 2
-    benchmark-url: http://cp.cloudflare.com/generate_204
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
-    interval: 5
-    name: Google
-    Proxy:
-      - Proxy
-    type: select
-    url: http://cp.cloudflare.com/generate_204
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
-    name: Microsoft
-    Proxy:
-      - DIRECT
-      - Proxy
-    type: select
-    use:
-     - 守候
-  - benchmark-timeout: 2
-    benchmark-url: http://cp.cloudflare.com/generate_204
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
-    interval: 120
-    name: Emby
-    Proxy: 
-      - DIRECT
-      - Proxy
-    type: select
-    url: http://cp.cloudflare.com/generate_204
-    use:
-     - 守候
-  - benchmark-timeout: 2
-    benchmark-url: http://cp.cloudflare.com/generate_204
-    filter: null
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/NBA.png
-    interval: 120
-    name: NBA
-    Proxy:
-      - Proxy
-    type: select
-    url: http://cp.cloudflare.com/generate_204
-    use:
-     - 守候
-  - benchmark-timeout: 2
-    benchmark-url: http://cp.cloudflare.com/generate_204
-    filter: 美國|美國|US|美国
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
-    interval: 120
-    name: Foumula1
-    Proxy:
-      - DIRECT
-      - Proxy   
-    type: select
-    url: http://cp.cloudflare.com/generate_204
-    use:
-     - 守候
-  - icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Website_icon/80px/OpenAI.png
-    name: ChatGPT
-    Proxy:
-      - DIRECT
-      - Proxy 
-    type: select
-    use:
-     - 守候
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pig.png
-    name: 漏网之鱼
-    Proxy:
-      - Proxy
-      - DIRECT
-    type: select
-    use:
-     - 守候
 
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+    include-all: true
+
+  - name: "Netflix"
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "Youtube"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "Spotify"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "Bilibili"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "Telegram"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "Twitter"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "Speedtest"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "PayPal"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "TestFlight"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "Apple"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "GoogleVoice"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - 守候
+
+  - name: "GoogleDrive"
+    type: select
+    proxies:
+      - Proxy
+    use:
+      - 守候
+
+  - name: "Google"
+    type: select
+    proxies:
+      - Proxy
+    use:
+      - 守候
+
+  - name: "Microsoft"
+    type: select
+    proxies:
+      - DIRECT
+      - Proxy
+    use:
+      - 守候
+
+  - name: "Emby"
+    type: select
+    proxies:
+      - DIRECT
+      - Proxy
+    use:
+      - 守候
+
+  - name: "NBA"
+    type: select
+    proxies:
+      - Proxy
+    use:
+      - 守候
+
+  - name: "Foumula1"
+    type: select
+    proxies:
+      - DIRECT
+      - Proxy
+    use:
+      - 守候
+
+  - name: "ChatGPT"
+    type: select
+    proxies:
+      - DIRECT
+      - Proxy
+    use:
+      - 守候
+
+  - name: "漏网之鱼"
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+    use:
+      - 守候
 
 proxy-providers:
   守候:
