@@ -51,8 +51,7 @@ proxy-groups:
       - Proxy
       - DIRECT
     type: select
-    use:
-      - 1
+    use: [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     name: Youtube
     proxies:
@@ -122,7 +121,8 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Drive.png
     interval: 120
     name: GoogleDrive
-    proxies: null
+    proxies:
+      - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
     use: []
@@ -158,7 +158,8 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/NBA.png
     interval: 120
     name: NBA
-    proxies: null
+    proxies:
+      - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
     use: []
