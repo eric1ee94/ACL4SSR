@@ -34,12 +34,12 @@ dns:
   listen: 0.0.0.0:1053
   nameserver: null
 external-controller: 127.0.0.1:9090
-proxies: []
+Proxy: []
 proxy-groups:
   - filter: null
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     name: Proxy
-    proxies:
+    Proxy:
       - DIRECT
     type: select
     use: [守候]
@@ -47,28 +47,28 @@ proxy-groups:
   - filter: 新加坡
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
     name: Netflix
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
     use: [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     name: Youtube
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
   - filter: null
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     name: Spotify
-    proxies:
+    Proxy:
       - DIRECT
     type: select
     use: [守候]
   - filter: 台湾|DIRECT
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Bilibili.png
     name: Bilibili
-    proxies:
+    Proxy:
       - DIRECT
     type: select
     use: [守候]
@@ -77,45 +77,45 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
     interval: 5
     name: Telegram
-    proxies:
+    Proxy:
       - DIRECT
-      - Proxies
+      - Proxy
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     use: []
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
     name: Twitter
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     name: Speedtest
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
     name: PayPal
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TestFlight.png
     name: TestFlight
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     name: Apple
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
   - icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Voice.png
     name: GoogleVoice
-    proxies:
+    Proxy:
       - Proxy
     type: select
   - benchmark-timeout: 2
@@ -123,7 +123,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Drive.png
     interval: 120
     name: GoogleDrive
-    proxies:
+    Proxy:
       - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
@@ -133,14 +133,14 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
     interval: 5
     name: Google
-    proxies:
+    Proxy:
       - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
     use: []
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     name: Microsoft
-    proxies:
+    Proxy:
       - DIRECT
       - Proxy
     type: select
@@ -150,7 +150,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
     interval: 120
     name: Emby
-    proxies: 
+    Proxy: 
       - DIRECT
       - Proxy
     type: select
@@ -162,7 +162,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/NBA.png
     interval: 120
     name: NBA
-    proxies:
+    Proxy:
       - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
@@ -173,7 +173,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     interval: 120
     name: Foumula1
-    proxies:
+    Proxy:
       - DIRECT
       - Proxy   
     type: select
@@ -181,14 +181,14 @@ proxy-groups:
     use: []
   - icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Website_icon/80px/OpenAI.png
     name: ChatGPT
-    proxies:
+    Proxy:
       - DIRECT
       - Proxy 
     type: select
     use: []
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pig.png
     name: 漏网之鱼
-    proxies:
+    Proxy:
       - Proxy
       - DIRECT
     type: select
