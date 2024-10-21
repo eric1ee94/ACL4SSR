@@ -201,11 +201,6 @@ proxy-providers:
       interval: 6000
 
 rule-providers:
-  ASN-rules:
-    behavior: classical
-    interval: 86400
-    name: ASN
-    url: https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Stash/RuleSet/ASN_China.yaml
   Apple-rules:
     behavior: domain-text
     interval: 86400
