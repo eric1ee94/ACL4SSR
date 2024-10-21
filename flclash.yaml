@@ -43,7 +43,7 @@ proxy-groups:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
     include-all: true
   - filter: 新加坡
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
@@ -59,7 +59,7 @@ proxy-groups:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - filter: null
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     name: Spotify
@@ -67,7 +67,7 @@ proxy-groups:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - filter: 台湾|DIRECT
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Bilibili.png
     name: Bilibili
@@ -75,7 +75,7 @@ proxy-groups:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
@@ -85,49 +85,49 @@ proxy-groups:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
     name: Twitter
     Proxy:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     name: Speedtest
     Proxy:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
     name: PayPal
     Proxy:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TestFlight.png
     name: TestFlight
     Proxy:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     name: Apple
     Proxy:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Voice.png
     name: GoogleVoice
     Proxy:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Drive.png
@@ -138,7 +138,7 @@ proxy-groups:
     type: select
     url: http://cp.cloudflare.com/generate_204
     use:
-     - 守候
+     - [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
@@ -149,7 +149,7 @@ proxy-groups:
     type: select
     url: http://cp.cloudflare.com/generate_204
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     name: Microsoft
     Proxy:
@@ -157,7 +157,7 @@ proxy-groups:
       - Proxy
     type: select
     use:
-     - 守候
+     - [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
@@ -169,7 +169,7 @@ proxy-groups:
     type: select
     url: http://cp.cloudflare.com/generate_204
     use:
-     - 守候
+     - [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     filter: null
@@ -181,7 +181,7 @@ proxy-groups:
     type: select
     url: http://cp.cloudflare.com/generate_204
     use:
-     - 守候
+     - [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     filter: 美國|美國|US|美国
@@ -194,7 +194,7 @@ proxy-groups:
     type: select
     url: http://cp.cloudflare.com/generate_204
     use:
-     - 守候
+     - [守候]
   - icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Website_icon/80px/OpenAI.png
     name: ChatGPT
     Proxy:
@@ -202,7 +202,7 @@ proxy-groups:
       - Proxy 
     type: select
     use:
-     - 守候
+     - [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pig.png
     name: 漏网之鱼
     Proxy:
@@ -210,7 +210,7 @@ proxy-groups:
       - DIRECT
     type: select
     use:
-     - 守候
+     - [守候]
 
 
 proxy-providers:proxy-providers: {守候: {interval: 0, url: 'https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae'}, JonCloud: {interval: 120, url: 'https://sub.abcdyun.top/api/v1/client/subscribe?token=f87c4826f3759b66ae0f5c2af6583e26'}}
