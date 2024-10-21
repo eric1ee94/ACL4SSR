@@ -191,7 +191,7 @@ use: []
 
 
 proxy-providers:
-  守候:
+    守候:
     type: http
     url: "https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae"
     interval: 86400
