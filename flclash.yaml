@@ -1,0 +1,341 @@
+allow-lan: true
+bind-address: '*'
+dns:
+  default-nameserver:
+    - 119.29.29.29
+    - 119.28.28.28
+    - 223.5.5.5
+    - 114.114.114.114
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - lens.l.google.com
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - +.xboxlive.com
+    - msftconnecttest.com
+    - xbox.*.microsoft.com
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
+  fake-ip-range: 198.18.0.1/16
+  listen: 0.0.0.0:1053
+  nameserver: null
+external-controller: 127.0.0.1:9090
+log-level: silent
+mixed-port: 7890
+mode: rule
+proxies: []
+proxy-groups:
+  - filter: null
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    name: Proxy
+    proxies:
+      - DIRECT
+    type: select
+    use: [守候, JonCloud]
+    include-all: true
+  - filter: 新加坡
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+    name: Netflix
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+    use:
+      - 1
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    name: Youtube
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+  - filter: null
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+    name: Spotify
+    proxies:
+      - DIRECT
+    type: select
+    use: []
+  - filter: 台湾|DIRECT
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Bilibili.png
+    name: Bilibili
+    proxies:
+      - DIRECT
+    type: select
+    use:
+      - 1
+  - benchmark-timeout: 2
+    benchmark-url: http://cp.cloudflare.com/generate_204
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+    interval: 5
+    name: Telegram
+    proxies: []
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    use: []
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
+    name: Twitter
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+    name: Speedtest
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
+    name: PayPal
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TestFlight.png
+    name: TestFlight
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    name: Apple
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+  - icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Voice.png
+    name: GoogleVoice
+    proxies:
+      - Proxy
+    type: select
+  - benchmark-timeout: 2
+    benchmark-url: http://cp.cloudflare.com/generate_204
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Drive.png
+    interval: 120
+    name: GoogleDrive
+    proxies: null
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    use: []
+  - benchmark-timeout: 2
+    benchmark-url: http://cp.cloudflare.com/generate_204
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
+    interval: 5
+    name: Google
+    proxies:
+      - Proxy
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    use: []
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    name: Microsoft
+    proxies:
+      - DIRECT
+      - Proxy
+    type: select
+    use: []
+  - benchmark-timeout: 2
+    benchmark-url: http://cp.cloudflare.com/generate_204
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
+    interval: 120
+    name: Emby
+    proxies: [DIRECT, Proxy]
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    use: []
+  - benchmark-timeout: 2
+    benchmark-url: http://cp.cloudflare.com/generate_204
+    filter: null
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/NBA.png
+    interval: 120
+    name: NBA
+    proxies: null
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    use: []
+  - benchmark-timeout: 2
+    benchmark-url: http://cp.cloudflare.com/generate_204
+    filter: 美國|美國|US|美国
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    interval: 120
+    name: Foumula1
+    proxies: []
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    use: []
+  - icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Website_icon/80px/OpenAI.png
+    name: ChatGPT
+    proxies: []
+    type: select
+    use: []
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pig.png
+    name: 漏网之鱼
+    proxies:
+      - Proxy
+      - DIRECT
+    type: select
+use: []
+
+
+proxy-providers:
+  守候:
+    type: http
+    url: "https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae"
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 6000
+
+rule-providers:
+  ASN-rules:
+    behavior: classical
+    interval: 86400
+    name: ASN
+    url: https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Stash/RuleSet/ASN_China.yaml
+  Apple-rules:
+    behavior: domain-text
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5a1db4d22e88c63a3ac18238d16d9384a61b7f70/rule/Clash/Apple/Apple_Domain.txt
+  Bilibili-rules:
+    behavior: classical
+    interval: 86400
+    name: Bilibili
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/BiliBili/BiliBili.yaml
+  ChatGPT-rules:
+    behavior: classical
+    interval: 86400
+    name: ChatGPT
+    url: https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Stash/RuleSet/OpenAI.yaml
+  Emby-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/eric1ee94/ACL4SSR/master/emby.yaml
+  Formula1-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/eric1ee94/ACL4SSR/master/f1.yaml
+  Gdrive-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleDrive/GoogleDrive.yaml
+  Global-rules:
+    behavior: domain-text
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5a1db4d22e88c63a3ac18238d16d9384a61b7f70/rule/Clash/Global/Global_Domain.txt
+  Google-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
+  GoogleVoice-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleVoice/GoogleVoice.yaml
+  Line-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Line/Line.yaml
+  Mainland-rules:
+    behavior: domain-text
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Domain.txt
+  MainlandIP-rules:
+    behavior: ipcidr-text
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_IP.txt
+  Microsoft-rules:
+    behavior: classical
+    interval: 86400
+    name: Microsoft
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Microsoft/Microsoft.yaml
+  NBA-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/eric1ee94/ACL4SSR/master/nba.yaml
+  Netflix-rules:
+    behavior: ipcidr-text
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_IP.txt
+  PayPal-rules:
+    behavior: classical
+    interval: 86400
+    name: PayPal
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml
+  Spark-rules:
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spark/Spark.yaml
+  Speedtest-rules:
+    behavior: classical
+    interval: 86400
+    name: Speedtest
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Speedtest/Speedtest.yaml
+  Spotify-rules:
+    behavior: classical
+    interval: 86400
+    name: Spotify
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Spotify/Spotify.yaml
+  Telegram-rules:
+    behavior: classical
+    interval: 86400
+    name: Telegram
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Telegram/Telegram.yaml
+  TestFlight-rules:
+    behavior: classical
+    interval: 86400
+    name: TestFlight
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/TestFlight/TestFlight.yaml
+  TikTok-rules:
+    behavior: classical
+    interval: 86400
+    name: TikTok
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/TikTok/TikTok.yaml
+  Twitter-rules:
+    behavior: classical
+    interval: 86400
+    name: Twitter
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Twitter/Twitter.yaml
+  Youtube-rules:
+    behavior: classical
+    interval: 86400
+    name: Youtube
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
+rules:
+  - DOMAIN-SUFFIX,piggo.me,DIRECT # 猪猪pt
+  - DOMAIN-SUFFIX,gugumedia.link,Emby
+  - DOMAIN-SUFFIX,netflix.com,Netflix
+  - RULE-SET,Line-rules,Proxy
+  - DOMAIN,embyvip.misakaf.org,DIRECT
+  - DOMAIN-KEYWORD,firebase,Proxy
+  - RULE-SET,Emby-rules,Emby
+  - DOMAIN,voice.telephony.goog,GoogleVoice
+  - RULE-SET,Spark-rules,Proxy
+  - RULE-SET,GoogleVoice-rules,GoogleVoice
+  - RULE-SET,Gdrive-rules,GoogleDrive
+  - DOMAIN-KEYWORD,github.com,Proxy
+  - DOMAIN-KEYWORD,nba,NBA
+  - RULE-SET,NBA-rules,NBA
+  - DOMAIN-KEYWORD,linkedin,Proxy
+  - RULE-SET,Formula1-rules,Foumula1
+  - RULE-SET,ChatGPT-rules,ChatGPT
+  - RULE-SET,Netflix-rules,Netflix
+  - RULE-SET,Youtube-rules,Youtube
+  - RULE-SET,Spotify-rules,Spotify
+  - RULE-SET,Bilibili-rules,Bilibili
+  - RULE-SET,Telegram-rules,Telegram
+  - RULE-SET,Twitter-rules,Twitter
+  - RULE-SET,Speedtest-rules,Speedtest
+  - RULE-SET,PayPal-rules,PayPal
+  - RULE-SET,TestFlight-rules,TestFlight
+  - RULE-SET,Apple-rules,Apple
+  - RULE-SET,Google-rules,Google
+  - RULE-SET,Microsoft-rules,Microsoft
+  - RULE-SET,MainlandIP-rules,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,漏网之鱼
