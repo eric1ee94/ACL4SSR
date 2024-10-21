@@ -45,7 +45,7 @@ proxy-groups:
     proxies:
       - DIRECT
     type: select
-    use: [守候, JonCloud]
+    use: [守候]
     include-all: true
   - filter: 新加坡
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
@@ -68,15 +68,14 @@ proxy-groups:
     proxies:
       - DIRECT
     type: select
-    use: []
+    use: [守候]
   - filter: 台湾|DIRECT
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Bilibili.png
     name: Bilibili
     proxies:
       - DIRECT
     type: select
-    use:
-      - 1
+    use: [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
@@ -191,7 +190,7 @@ use: []
 
 
 proxy-providers:
-    守候:
+   守候:
     type: http
     url: "https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae"
     interval: 86400
