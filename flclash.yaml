@@ -42,7 +42,6 @@ proxy-groups:
     Proxy:
       - DIRECT
     type: select
-    use: 守候
     include-all: true
   - filter: 新加坡
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
