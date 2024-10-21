@@ -51,7 +51,8 @@ proxy-groups:
       - Proxy
       - DIRECT
     type: select
-    use: 
+    use:
+     - 守候
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     name: Youtube
     Proxy:
