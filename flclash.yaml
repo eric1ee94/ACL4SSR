@@ -77,7 +77,9 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
     interval: 5
     name: Telegram
-    proxies: []
+    proxies:
+      - DIRECT
+      - Proxies
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     use: []
@@ -148,7 +150,9 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
     interval: 120
     name: Emby
-    proxies: [DIRECT, Proxy]
+    proxies: 
+      - DIRECT
+      - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
     use: []
@@ -169,13 +173,17 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     interval: 120
     name: Foumula1
-    proxies: []
+    proxies:
+      - DIRECT
+      - Proxy   
     type: select
     url: http://cp.cloudflare.com/generate_204
     use: []
   - icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Website_icon/80px/OpenAI.png
     name: ChatGPT
-    proxies: []
+    proxies:
+      - DIRECT
+      - Proxy 
     type: select
     use: []
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pig.png
