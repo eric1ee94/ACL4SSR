@@ -34,7 +34,6 @@ dns:
   listen: 0.0.0.0:1053
   nameserver: null
 external-controller: 127.0.0.1:9090
-Proxy: []
 proxy-groups:
   - filter: null
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
