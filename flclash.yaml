@@ -195,15 +195,7 @@ proxy-groups:
 use: []
 
 
-proxy-providers:
-   守候:
-    type: http
-    url: "https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae"
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 6000
+proxy-providers:proxy-providers: {守候: {interval: 0, url: 'https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae'}, JonCloud: {interval: 120, url: 'https://sub.abcdyun.top/api/v1/client/subscribe?token=f87c4826f3759b66ae0f5c2af6583e26'}}
 
 rule-providers:
   Apple-rules:
