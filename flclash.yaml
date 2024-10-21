@@ -55,9 +55,9 @@ proxy-groups:
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     name: Youtube
     Proxy:
-      - Proxy
       - DIRECT
     type: select
+    use: [守候]
   - filter: null
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     name: Spotify
@@ -79,22 +79,20 @@ proxy-groups:
     name: Telegram
     Proxy:
       - DIRECT
-      - Proxy
-    type: fallback
-    url: http://cp.cloudflare.com/generate_204
-    use: []
+    type: select
+    use: [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
     name: Twitter
     Proxy:
-      - Proxy
       - DIRECT
     type: select
+    use: [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     name: Speedtest
     Proxy:
-      - Proxy
       - DIRECT
     type: select
+    use: [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
     name: PayPal
     Proxy:
@@ -104,20 +102,21 @@ proxy-groups:
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TestFlight.png
     name: TestFlight
     Proxy:
-      - Proxy
       - DIRECT
     type: select
+    use: [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     name: Apple
     Proxy:
-      - Proxy
       - DIRECT
     type: select
+    use: [守候]
   - icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Voice.png
     name: GoogleVoice
     Proxy:
-      - Proxy
+      - DIRECT
     type: select
+    use: [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Drive.png
@@ -127,7 +126,7 @@ proxy-groups:
       - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
-    use: []
+    use: [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
@@ -137,14 +136,14 @@ proxy-groups:
       - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
-    use: []
+    use: [守候]
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     name: Microsoft
     Proxy:
       - DIRECT
       - Proxy
     type: select
-    use: []
+    use: [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
@@ -155,7 +154,7 @@ proxy-groups:
       - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
-    use: []
+    use: [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     filter: null
@@ -166,7 +165,7 @@ proxy-groups:
       - Proxy
     type: select
     url: http://cp.cloudflare.com/generate_204
-    use: []
+    use: [守候]
   - benchmark-timeout: 2
     benchmark-url: http://cp.cloudflare.com/generate_204
     filter: 美國|美國|US|美国
@@ -178,7 +177,7 @@ proxy-groups:
       - Proxy   
     type: select
     url: http://cp.cloudflare.com/generate_204
-    use: []
+    use: [守候]
   - icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Website_icon/80px/OpenAI.png
     name: ChatGPT
     Proxy:
