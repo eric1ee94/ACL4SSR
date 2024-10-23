@@ -60,6 +60,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
+      - GuGu USA PRO
     use:
       - 守候
       - Nexitally
