@@ -35,7 +35,6 @@ dns:
     - '*.battle.net'
   fake-ip-range: 198.18.0.1/16
   listen: 0.0.0.0:1053
-  nameserver: null
 external-controller: 127.0.0.1:9090
 
 proxy-groups:
