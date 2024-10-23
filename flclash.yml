@@ -42,6 +42,7 @@ proxy-groups:
       - DIRECT
     use:
       - 守候
+      - Nexitally
     include-all: true
 
   - name: "Netflix"
