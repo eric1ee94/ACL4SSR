@@ -43,14 +43,16 @@ proxies:
     server: 38.174.112.11  # 服务器IP地址
     port: 46456  # 端口号
     uuid: 5fe79dd1-e8db-575d-a017-0b43fba7a742  # 解码后的UUID
-    cipher: none  # VLESS默认加密
+    cipher: none  # VLESS默认加密为none
     tls: true  # 启用TLS
+    xtls: true  # 启用XTLS
     skip-cert-verify: true  # 是否跳过证书验证
-    servername: www.pixiv.co.jp  # SNI（服务器名称）
+    servername: www.pixiv.co.jp  # SNI（服务器名称指示）
+    flow: xtls-rprx-vision  # XTLS流控模式
     reality-opts:
       public-key: rRcVpPjXT71CrLCD2vFQl5LKb_baKqik8hgXYNE0DCI  # Reality的公钥
-      short-id: 1755ef3c  # Reality 的 short ID
-    network: tcp  # VLESS 使用 TCP
+      short-id: 1755ef3c  # Reality的short ID
+    network: tcp  # 使用TCP
     udp: true  # 启用UDP
 
 proxy-groups:
