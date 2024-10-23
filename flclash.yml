@@ -38,7 +38,7 @@ dns:
 external-controller: 127.0.0.1:9090
 
 proxies:
-  - name: "GuGu USA PROY"
+  - name: "GuGu USA PRO"
     type: vless
     server: 38.174.112.11  # 服务器IP地址
     port: 46456  # 端口号
