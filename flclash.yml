@@ -45,6 +45,7 @@ proxy-groups:
     use:
       - 守候
       - Nexitally
+      - 自建节点
     include-all: true
 
   - name: "Netflix"
@@ -198,6 +199,15 @@ proxy-providers:
   Nexitally:
     type: http
     url: "https://llspns.xyz/?L2Rvd25sb2FkQ29uZmlnL1NoYWRvd1JvY2tldEltcG9ydFNlcnZpY2UuYXNweD90PXNzbiZ1cms9MDMwODQ2MzUtNjY0OC00NTdjLWJjZjUtODM0NDIzNzYxZWU3Jm1tPTMxNTUwMyY5NzZiYzA3NjFmOWM0MzM1OWJhZjk2NDJkZg=="
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 6000
+
+  自建节点:
+    type: http
+    url: "https://url.v1.mk/sub?target=clash&url=vless%3A%2F%2FYXV0bzo1ZmU3OWRkMS1lOGRiLTU3NWQtYTAxNy0wYjQzZmJhN2E3NDJAMzguMTc0LjExMi4xMTo0NjQ1Ng%3Fremarks%3DVLESS-XTLS-uTLS-REALITY%26obfs%3Dnone%26tls%3D1%26peer%3Dwww.pixiv.co.jp%26xtls%3D2%26pbk%3DrRcVpPjXT71CrLCD2vFQl5LKb_baKqik8hgXYNE0DCI%26sid%3D1755ef3c&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&emoji=true&list=true&xudp=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&new_name=true"
     interval: 86400
     health-check:
       enable: true
