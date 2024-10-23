@@ -40,20 +40,22 @@ external-controller: 127.0.0.1:9090
 proxies:
   - name: "GuGu USA PRO"
     type: vless
-    server: 38.174.112.11  # 服务器IP地址
-    port: 46456  # 端口号
-    uuid: 5fe79dd1-e8db-575d-a017-0b43fba7a742  # 解码后的UUID
-    cipher: none  # VLESS默认加密为none
-    tls: true  # 启用TLS
-    xtls: true  # 启用XTLS
-    skip-cert-verify: true  # 是否跳过证书验证
+    server: 38.174.112.11  # 服务器地址
+    port: 46456  # 服务器端口
+    uuid: 5fe79dd1-e8db-575d-a017-0b43fba7a742  # UUID
+    cipher: none  # VLESS 的加密方式为 none
+    flow: xtls-rprx-vision  # XTLS 的流控方式
+    tls: true  # 启用 TLS
+    xtls: true  # 启用 XTLS
+    skip-cert-verify: true  # 不验证证书
     servername: www.pixiv.co.jp  # SNI（服务器名称指示）
-    flow: xtls-rprx-vision  # XTLS流控模式
     reality-opts:
-      public-key: rRcVpPjXT71CrLCD2vFQl5LKb_baKqik8hgXYNE0DCI  # Reality的公钥
-      short-id: 1755ef3c  # Reality的short ID
-    network: tcp  # 使用TCP
-    udp: true  # 启用UDP
+      public-key: rRcVpPjXT71CrLCD2vFQl5LKb_baKqik8hgXYNE0DCI  # Reality 公钥
+      short-id: 1755ef3c  # Reality 的 short ID
+    network: tcp  # 使用 TCP 传输
+    udp: true  # 启用 UDP 支持
+    uTls:
+      fingerprint: chrome  # 使用 uTLS 的 Chrome 指纹
 
 proxy-groups:
   - name: "Proxy"
