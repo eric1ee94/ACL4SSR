@@ -37,6 +37,24 @@ dns:
   listen: 0.0.0.0:1053
 external-controller: 127.0.0.1:9090
 
+proxies:
+  - name: "GuGu USA PRO"
+    type: vless
+    server: your_vless_server_address.com  # VLESS服务器地址
+    port: 443  # 端口号
+    uuid: your_uuid_here  # VLESS的UUID
+    flow: ""  # 一般为空，除非是XTLS等特殊配置
+    cipher: none  # VLESS默认加密为 none
+    tls: true  # 是否启用TLS
+    skip-cert-verify: true  # 是否跳过证书验证
+    servername: your_vless_server_address.com  # SNI服务器名，与TLS相关
+    network: ws  # 传输类型，可以是 ws, grpc 等
+    ws-opts:
+      path: /websocket  # WebSocket路径
+      headers:
+        Host: your_vless_server_address.com  # WebSocket的Host
+    udp: true  # 是否支持UDP
+
 proxy-groups:
   - name: "Proxy"
     type: select
