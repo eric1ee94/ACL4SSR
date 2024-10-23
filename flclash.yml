@@ -58,86 +58,86 @@ proxy-groups:
   - name: "Youtube"
     type: select
     proxies:
-      - DIRECT
+      - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "Spotify"
     type: select
     proxies:
       - DIRECT
     use:
-      - 守候
+      - Nexitally
 
   - name: "Bilibili"
     type: select
     proxies:
       - DIRECT
     use:
-      - 守候
+      - Nexitally
 
   - name: "Telegram"
     type: select
     proxies:
-      - DIRECT
+      - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "Twitter"
     type: select
     proxies:
-      - DIRECT
+      - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "Speedtest"
     type: select
     proxies:
-      - DIRECT
+      - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "PayPal"
     type: select
     proxies:
       - DIRECT
     use:
-      - 守候
+      - Nexitally
 
   - name: "TestFlight"
     type: select
     proxies:
       - DIRECT
     use:
-      - 守候
+      - Nexitally
 
   - name: "Apple"
     type: select
     proxies:
       - DIRECT
     use:
-      - 守候
+      - Nexitally
 
   - name: "GoogleVoice"
     type: select
     proxies:
-      - DIRECT
+      - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "GoogleDrive"
     type: select
     proxies:
       - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "Google"
     type: select
     proxies:
       - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "Microsoft"
     type: select
@@ -145,7 +145,7 @@ proxy-groups:
       - DIRECT
       - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "Emby"
     type: select
@@ -153,14 +153,14 @@ proxy-groups:
       - DIRECT
       - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "NBA"
     type: select
     proxies:
       - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "Foumula1"
     type: select
@@ -168,15 +168,14 @@ proxy-groups:
       - DIRECT
       - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "ChatGPT"
     type: select
     proxies:
-      - DIRECT
       - Proxy
     use:
-      - 守候
+      - Nexitally
 
   - name: "漏网之鱼"
     type: select
@@ -184,7 +183,7 @@ proxy-groups:
       - Proxy
       - DIRECT
     use:
-      - 守候
+      - Nexitally
 
 proxy-providers:
   守候:
@@ -344,6 +343,7 @@ rules:
   - RULE-SET,Line-rules,Proxy
   - DOMAIN,embyvip.misakaf.org,DIRECT
   - DOMAIN-KEYWORD,firebase,Proxy
+  - DOMAIN-KEYWORD,xttlove,Proxy
   - RULE-SET,Emby-rules,Emby
   - DOMAIN,voice.telephony.goog,GoogleVoice
   - RULE-SET,Spark-rules,Proxy
