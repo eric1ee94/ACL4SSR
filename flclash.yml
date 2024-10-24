@@ -39,7 +39,7 @@ external-controller: 127.0.0.1:9090
 
 proxies:
 
-   - name: "GuGu HY"
+  - name: "GuGu HY"
     type: hysteria
     server: trojan.gugu.media  # 服务器地址
     port: 10742  # 端口号
