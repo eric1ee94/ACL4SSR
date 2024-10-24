@@ -38,6 +38,19 @@ dns:
 external-controller: 127.0.0.1:9090
 
 proxies:
+
+   - name: "GuGu HY"
+    type: hysteria
+    server: trojan.gugu.media  # 服务器地址
+    port: 10742  # 端口号
+    auth_str: 9ea2ipf3USmJqB3XkZiwltRr4  # Hysteria2 的认证信息
+    protocol: udp  # Hysteria2 通常使用 UDP 传输
+    tls: true  # 启用 TLS
+    sni: trojan.gugu.media  # SNI（服务器名称指示）
+    alpn:
+      - h2  # 使用 HTTP/2
+    skip-cert-verify: true  # 跳过证书验证 
+    
   - name: "GuGu USA PRO"
     type: vless
     server: 38.174.112.11  # 服务器地址
@@ -55,7 +68,7 @@ proxies:
     network: tcp  # 使用 TCP 传输
     udp: true  # 启用 UDP 支持
     uTls:
-      fingerprint: chrome  # 使用 uTLS 的 Chrome 指纹
+      fingerprint: chrome  # 使用 uTLS 的 Chrome 指纹  
 
 proxy-groups:
   - name: "Proxy"
