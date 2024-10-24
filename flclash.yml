@@ -398,5 +398,15 @@ rules:
   - RULE-SET,Google-rules,Google
   - RULE-SET,Microsoft-rules,Microsoft
   - RULE-SET,MainlandIP-rules,DIRECT
-  - GEOIP,CN,DIRECT
+  - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,google,Google
+  - GEOIP,telegram,Telegram
+  - GEOSITE,icloud@cn,DIRECT
+  - GEOSITE,apple@cn,DIRECT
+  - GEOSITE,apple-cn,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,facebook,Proxy
+  - GEOSITE,youtube,Youtube
+  - GEOSITE,geolocation-cn,DIRECT
+  - GEOIP,cn,DIRECT
   - MATCH,漏网之鱼
