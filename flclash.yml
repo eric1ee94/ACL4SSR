@@ -49,6 +49,8 @@ proxies:
     alpn:
       - h2  # 使用 HTTP/2
     skip-cert-verify: true  # 跳过证书验证 
+    up: 100  # 设置上传速率限制，例如 50 Mbps
+    down: 100  # 设置下载速率限制，例如 100 Mbps
 
 proxy-groups:
   - name: "Proxy"
