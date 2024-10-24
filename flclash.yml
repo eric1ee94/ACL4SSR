@@ -401,6 +401,7 @@ rules:
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,google,Google
   - GEOIP,telegram,Telegram
+  - GEOIP,netflix,Netflix
   - GEOSITE,icloud@cn,DIRECT
   - GEOSITE,apple@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
