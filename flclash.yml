@@ -6,6 +6,7 @@ allow-lan: false
 mode: Rule
 log-level: info
 ipv6: false
+prefer-h3: true
 hosts:
 dns:
   default-nameserver:
@@ -39,18 +40,12 @@ external-controller: 127.0.0.1:9090
 
 proxies:
   - name: "GuGu HY"
-    type: hysteria
-    server: trojan.gugu.media  # 服务器地址
-    port: 10742  # 端口号
-    auth_str: 9ea2ipf3USmJqB3XkZiwltRr4  # Hysteria2 的认证信息
-    protocol: udp  # Hysteria2 通常使用 UDP 传输
-    tls: true  # 启用 TLS
-    sni: trojan.gugu.media  # SNI（服务器名称指示）
-    alpn:
-      - h2  # 使用 HTTP/2
-    skip-cert-verify: true  # 跳过证书验证 
-    up: 100  # 设置上传速率限制，例如 50 Mbps
-    down: 100  # 设置下载速率限制，例如 100 Mbps
+    type: hysteria2
+    server: trojan.gugu.media
+    port: 10742
+    password: 9ea2ipf3USmJqB3XkZiwltRr4
+    sni: trojan.gugu.media
+    skip-cert-verify: false
 
 proxy-groups:
   - name: "Proxy"
