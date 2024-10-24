@@ -389,7 +389,7 @@ rules:
   - RULE-SET,Microsoft-rules,Microsoft
   - RULE-SET,MainlandIP-rules,DIRECT
   - GEOSITE,category-ads-all,REJECT
-  - GEOSITE,apkpure.Proxy
+  - GEOSITE,apkpure,Proxy
   - GEOSITE,google,Google
   - GEOIP,telegram,Telegram
   - GEOIP,netflix,Netflix
