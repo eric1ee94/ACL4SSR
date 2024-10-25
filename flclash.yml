@@ -46,7 +46,7 @@ proxies:
     password: 9ea2ipf3USmJqB3XkZiwltRr4
     sni: trojan.gugu.media
     skip-cert-verify: false
-   - name: YXVM HY
+  - name: YXVM HY
     type: hysteria2
     server: hy1.gugu.media
     port: 10742
@@ -170,6 +170,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxy
+      - YXVM HY
     use:
       - Nexitally
 
