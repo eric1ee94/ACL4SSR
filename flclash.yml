@@ -175,7 +175,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxy
-      - YXVM HY
+      - YXVM Trojan
     use:
       - Nexitally
 
