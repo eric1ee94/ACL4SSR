@@ -48,7 +48,7 @@ proxies:
     skip-cert-verify: false
     
   - name: "YXVM Trojan"
-    type: Trojan
+    type: trojan
     server: 46.3.106.16.nip.io 
     port: 443
     password: lx5844501314
