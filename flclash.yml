@@ -390,6 +390,7 @@ rules:
   - DOMAIN-KEYWORD,nba,NBA
   - RULE-SET,NBA-rules,NBA
   - DOMAIN-KEYWORD,linkedin,Proxy
+  - DOMAIN-KEYWORD,emby,Proxy
   - RULE-SET,Formula1-rules,Foumula1
   - RULE-SET,ChatGPT-rules,ChatGPT
   - RULE-SET,Netflix-rules,Netflix
