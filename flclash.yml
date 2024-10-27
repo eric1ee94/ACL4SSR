@@ -460,6 +460,7 @@ rules:
   - GEOSITE,apkpure,Proxy
   - GEOSITE,google,Google
   - GEOIP,telegram,Telegram
+  - GEOSITE,telegram,Telegram
   - GEOIP,netflix,Netflix
   - GEOSITE,netflix,Netflix  
   - GEOSITE,bilibili,Bilibili
