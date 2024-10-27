@@ -110,7 +110,7 @@ proxy-groups:
     use:
       - Nexitally
 
-  - name: "Twitter"
+  - name: "SocialMedia"
     type: select
     proxies:
       - Proxy
@@ -357,9 +357,9 @@ rules:
 # PT Rule  
   - DOMAIN-SUFFIX,piggo.me,DIRECT # 猪猪pt
 # Social Rules   
-  - DOMAIN-KEYWORD,linkedin,Proxy  
-  - DOMAIN-KEYWORD,github.com,Proxy  
-  - DOMAIN-KEYWORD,firebase,Proxy
+  - DOMAIN-KEYWORD,linkedin,SocialMedia
+  - DOMAIN-KEYWORD,github.com,SocialMedia 
+  - DOMAIN-KEYWORD,firebase,SocialMedia
 # 机场 Rules  
   - DOMAIN-KEYWORD,xttlove,Proxy
 # NBA Rules 
@@ -447,13 +447,13 @@ rules:
   - RULE-SET,Spark-rules,Proxy
   - RULE-SET,GoogleVoice-rules,GoogleVoice
   - RULE-SET,Gdrive-rules,GoogleDrive
-  - RULE-SET,Line-rules,Proxy
+  - RULE-SET,Line-rules,SocialMedia
   - RULE-SET,ChatGPT-rules,ChatGPT
   - RULE-SET,Netflix-rules,Netflix
   - RULE-SET,Youtube-rules,Youtube
   - RULE-SET,Spotify-rules,Spotify
   - RULE-SET,Telegram-rules,Telegram
-  - RULE-SET,Twitter-rules,Twitter
+  - RULE-SET,Twitter-rules,SocialMedia
   - RULE-SET,Speedtest-rules,Speedtest
   - RULE-SET,PayPal-rules,PayPal
   - RULE-SET,TestFlight-rules,TestFlight
@@ -462,6 +462,7 @@ rules:
   - RULE-SET,Mainland-rules,DIRECT
 # Geo  
   - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,whatsapp,SocialMedia
   - GEOSITE,apkpure,Proxy
   - GEOSITE,google,Google
   - GEOIP,telegram,Telegram
