@@ -368,7 +368,8 @@ rules:
   - DOMAIN-KEYWORD,github.com,SocialMedia 
   - DOMAIN-KEYWORD,firebase,SocialMedia
 # 机场 Rules  
-  - DOMAIN-KEYWORD,xttlove,Proxy
+  - DOMAIN-KEYWORD,xttlove,Proxy #守候
+  - DOMAIN-KEYWORD,llspns,Proxy #奶昔
 # NBA Rules 
   - DOMAIN-KEYWORD,nba,NBA
   - DOMAIN-KEYWORD,nba,NBA
