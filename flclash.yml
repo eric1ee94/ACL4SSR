@@ -253,11 +253,6 @@ rule-providers:
     interval: 86400
     name: ChatGPT
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
-  Emby-rules:
-    behavior: classical
-    type: http
-    interval: 86400
-    url: https://raw.githubusercontent.com/eric1ee94/ACL4SSR/master/emby.yaml
   Formula1-rules:
     behavior: classical
     type: http
@@ -353,24 +348,106 @@ rule-providers:
     name: Youtube
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
 rules:
-  - DOMAIN-SUFFIX,piggo.me,DIRECT # 猪猪pt
+# Emby Rules
+  - DOMAIN-KEYWORD,emby,Emby
   - DOMAIN-SUFFIX,gugumedia.link,Emby
-  - DOMAIN-SUFFIX,netflix.com,Netflix
-  - RULE-SET,Line-rules,Proxy
-  - DOMAIN,embyvip.misakaf.org,DIRECT
-  - DOMAIN-KEYWORD,firebase,Proxy
-  - DOMAIN-KEYWORD,xttlove,Proxy
-  - RULE-SET,Emby-rules,Emby
+  - DOMAIN,embyvip.misakaf.org,Emby
+# Google Voice  
   - DOMAIN,voice.telephony.goog,GoogleVoice
+# PT Rule  
+  - DOMAIN-SUFFIX,piggo.me,DIRECT # 猪猪pt
+# Social Rules   
+  - DOMAIN-KEYWORD,linkedin,Proxy  
+  - DOMAIN-KEYWORD,github.com,Proxy  
+  - DOMAIN-KEYWORD,firebase,Proxy
+# 机场 Rules  
+  - DOMAIN-KEYWORD,xttlove,Proxy
+# NBA Rules 
+  - DOMAIN-KEYWORD,nba,NBA
+  - DOMAIN-KEYWORD,nba,NBA
+  - DOMAIN,identity.nba.com,NBA 
+  - DOMAIN,cdn.nba.com,NBA
+  - DOMAIN,watch.nba.com,NBA 
+  - DOMAIN,stats.nba.com,NBA
+  - DOMAIN,content-api-prod.nba.com,NBA 
+  - DOMAIN-SUFFIX,akamaized.net,NBA 
+  - DOMAIN-SUFFIX,akamaihd.net,NBA 
+  - DOMAIN-SUFFIX,easelive.tv,NBA 
+  - DOMAIN-SUFFIX,omtrdc.net,NBA 
+  - DOMAIN-SUFFIX,neulion.com,NBA 
+  - DOMAIN-SUFFIX,branch.io,NBA 
+  - DOMAIN,sb.scorecardresearch.com,NBA 
+  - DOMAIN,api2.amplitude.com,NBA
+# F1 Rules
+  - DOMAIN-SUFFIX,f1.com,Foumula1
+  - DOMAIN-SUFFIX,formula1.com,Foumula1
+  - DOMAIN-SUFFIX,f1experiences.com,Foumula1
+  - DOMAIN-SUFFIX,f1authentics.com,Foumula1
+  - DOMAIN-SUFFIX,fiaformula1.com,Foumula1
+  - DOMAIN-SUFFIX,fiaformula2.com,Foumula1
+  - DOMAIN-SUFFIX,fiaformula3.com,Foumula1
+  - DOMAIN-SUFFIX,f1esports.com,Foumula1
+  - DOMAIN-SUFFIX,f1manager.com,Foumula1
+  - DOMAIN-SUFFIX,f1play.com,Foumula1
+  - DOMAIN-SUFFIX,bitmovin.com,Foumula1
+  - DOMAIN,d2n9h2wits23hf.cloudfront.net,Foumula1
+  - DOMAIN,f1prodlive.akamaized.net,Foumula1
+# 🇧🇭 Bahrain Grand Prix
+  - DOMAIN-SUFFIX,bahraingp.com,Foumula1
+# 🇸🇦 Saudi Arabian Grand Prix
+  - DOMAIN-SUFFIX,saudiarabiangp.com,Foumula1
+# 🇦🇺 Australian Grand Prix
+  - DOMAIN-SUFFIX,grandprix.com.au,Foumula1
+# 🇮🇹 Emilia Romagna Grand Prix
+  - DOMAIN-SUFFIX,autodromoimola.it,Foumula1
+# 🇺🇸 Miami Grand Prix
+  - DOMAIN-SUFFIX,f1miamigp.com,Foumula1
+# 🇪🇸 Spanish Grand Prix
+  - DOMAIN-SUFFIX,circuitcat.com,Foumula1
+# 🇲🇨 Monaco Grand Prix
+  - DOMAIN-SUFFIX,formula1monaco.com,Foumula1
+  - DOMAIN-SUFFIX,monacograndprixticket.com,Foumula1
+# 🇦🇿 Azerbaijan Grand Prix
+  - DOMAIN-SUFFIX,bakucitycircuit.com,Foumula1
+# 🇨🇦 Canadian Grand Prix
+  - DOMAIN-SUFFIX,gpcanada.ca,Foumula1
+  - DOMAIN-SUFFIX,montrealgrandprix.com,Foumula1
+# 🇬🇧 British Grand Prix
+  - DOMAIN-SUFFIX,silverstone.co.uk,Foumula1
+# 🇦🇹 Austrian Grand Prix
+  - DOMAIN-SUFFIX,f1austria.com,Foumula1
+# 🇫🇷 French Grand Prix
+  - DOMAIN-SUFFIX,gpfrance.com,Foumula1
+# 🇭🇺 Hungarian Grand Prix
+  - DOMAIN-SUFFIX,hungaroring.hu,Foumula1
+# 🇧🇪 Belgian Grand Prix
+  - DOMAIN-SUFFIX,spagrandprix.com,Foumula1
+# 🇳🇱 Dutch Grand Prix
+  - DOMAIN-SUFFIX,dutchgp.com,Foumula1
+# 🇮🇹 Italian Grand Prix
+  - DOMAIN-SUFFIX,monzanet.it,Foumula1
+# 🇸🇬 Singapore Grand Prix
+  - DOMAIN-SUFFIX,singaporegp.sg,Foumula1
+# 🇯🇵 Japanese Grand Prix
+  - DOMAIN-SUFFIX,suzukacircuit.jp,Foumula1
+# 🇺🇸 United States Grand Prix
+  - DOMAIN-SUFFIX,circuitoftheamericas.com,Foumula1
+# 🇲🇽 Mexican Grand Prix
+  - DOMAIN-SUFFIX,mexicogp.mx,Foumula1
+# 🇧🇷 Brazilian Grand Prix
+  - DOMAIN-SUFFIX,f1saopaulo.com.br,Foumula1
+# 🇦🇪 Abu Dhabi Grand Prix
+  - DOMAIN-SUFFIX,yasmarinacircuit.com,Foumula1
+# Not in 2022 Calendar
+# 🇷🇺 Russian Grand Prix (cancelled due to obvious reason)
+  - DOMAIN-SUFFIX,rosgonki.ru,Foumula1
+# 🇺🇸 Las Vegas Grand Prix (comming 2023)
+  - DOMAIN-SUFFIX,f1lasvegasgrandprix.com,Foumula1
+# Rule Set   
   - RULE-SET,Spark-rules,Proxy
   - RULE-SET,GoogleVoice-rules,GoogleVoice
   - RULE-SET,Gdrive-rules,GoogleDrive
-  - DOMAIN-KEYWORD,github.com,Proxy
-  - DOMAIN-KEYWORD,nba,NBA
-  - RULE-SET,NBA-rules,NBA
-  - DOMAIN-KEYWORD,linkedin,Proxy
-  - DOMAIN-KEYWORD,emby,Emby
-  - RULE-SET,Formula1-rules,Foumula1
+  - RULE-SET,Line-rules,Proxy
   - RULE-SET,ChatGPT-rules,ChatGPT
   - RULE-SET,Netflix-rules,Netflix
   - RULE-SET,Youtube-rules,Youtube
@@ -383,6 +460,7 @@ rules:
   - RULE-SET,Apple-rules,Apple
   - RULE-SET,Microsoft-rules,Microsoft
   - RULE-SET,Mainland-rules,DIRECT
+# Geo  
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,apkpure,Proxy
   - GEOSITE,google,Google
