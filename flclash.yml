@@ -89,12 +89,12 @@ proxy-groups:
     use:
       - Nexitally
 
-  - name: "Spotify"
-    type: select
-    proxies:
-      - DIRECT
-    use:
-      - Nexitally
+#  - name: "Spotify"
+#    type: select
+#    proxies:
+#      - DIRECT
+#    use:
+#      - Nexitally
 
   - name: "Bilibili"
     type: select
