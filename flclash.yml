@@ -476,5 +476,6 @@ rules:
   - GEOSITE,facebook,Proxy
   - GEOSITE,youtube,Youtube
   - GEOSITE,geolocation-cn,DIRECT
+  - GEOSITE,cn,DIRECT
   - GEOIP,cn,DIRECT
   - MATCH,漏网之鱼
