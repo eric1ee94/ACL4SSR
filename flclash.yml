@@ -306,12 +306,12 @@ rule-providers:
     interval: 86400
     name: Speedtest
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Speedtest/Speedtest.yaml
-  Spotify-rules:
-    behavior: classical
-    type: http
-    interval: 86400
-    name: Spotify
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Spotify/Spotify.yaml
+#  Spotify-rules:
+#    behavior: classical
+#    type: http
+#    interval: 86400
+#    name: Spotify
+#    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Spotify/Spotify.yaml
   Telegram-rules:
     behavior: classical
     type: http
@@ -444,9 +444,9 @@ rules:
   - RULE-SET,Gdrive-rules,GoogleDrive
   - RULE-SET,Line-rules,SocialMedia
   - RULE-SET,ChatGPT-rules,ChatGPT
-  - RULE-SET,Netflix-rules,Netflix
+#  - RULE-SET,Netflix-rules,Netflix
   - RULE-SET,Youtube-rules,Youtube
-  - RULE-SET,Spotify-rules,Spotify
+#  - RULE-SET,Spotify-rules,Spotify
   - RULE-SET,Telegram-rules,Telegram
   - RULE-SET,Twitter-rules,SocialMedia
   - RULE-SET,Speedtest-rules,Speedtest
