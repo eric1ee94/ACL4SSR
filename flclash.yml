@@ -243,10 +243,10 @@ proxy-providers:
       
 rule-providers:
   Apple-rules:
-    behavior: domain
+    behavior: classical
     type: http
     interval: 86400
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5a1db4d22e88c63a3ac18238d16d9384a61b7f70/rule/Clash/Apple/Apple_Domain.txt
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical.yaml
   Bilibili-rules:
     behavior: classical
     type: http
@@ -258,7 +258,7 @@ rule-providers:
     type: http
     interval: 86400
     name: ChatGPT
-    url: https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Stash/RuleSet/OpenAI.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
   Emby-rules:
     behavior: classical
     type: http
@@ -295,15 +295,10 @@ rule-providers:
     interval: 86400
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Line/Line.yaml
   Mainland-rules:
-    behavior: domain
+    behavior: classical
     type: http
     interval: 86400
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Domain.txt
-  MainlandIP-rules:
-    behavior: ipcidr
-    type: http
-    interval: 86400
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_IP.txt
+    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/China/China_Classical.yaml
   Microsoft-rules:
     behavior: classical
     type: http
@@ -405,12 +400,13 @@ rules:
   - RULE-SET,Apple-rules,Apple
   - RULE-SET,Google-rules,Google
   - RULE-SET,Microsoft-rules,Microsoft
-  - RULE-SET,MainlandIP-rules,DIRECT
+  - RULE-SET,Mainland-rules,DIRECT
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,apkpure,Proxy
   - GEOSITE,google,Google
   - GEOIP,telegram,Telegram
   - GEOIP,netflix,Netflix
+  - GEOSITE,openai,ChatGPT
   - GEOSITE,icloud@cn,DIRECT
   - GEOSITE,apple@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
