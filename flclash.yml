@@ -381,7 +381,6 @@ rules:
   - RULE-SET,PayPal-rules,PayPal
   - RULE-SET,TestFlight-rules,TestFlight
   - RULE-SET,Apple-rules,Apple
-  - RULE-SET,Google-rules,Google
   - RULE-SET,Microsoft-rules,Microsoft
   - RULE-SET,Mainland-rules,DIRECT
   - GEOSITE,category-ads-all,REJECT
