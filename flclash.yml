@@ -81,7 +81,7 @@ proxy-groups:
       - Proxy
       - DIRECT
     use:
-      - 守候
+      - Sub1
 
   - name: "Youtube"
     type: select
