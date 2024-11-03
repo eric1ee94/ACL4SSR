@@ -71,7 +71,7 @@ proxy-groups:
       - DIRECT
     use:
       - 守候
-      - Nexitally
+      - Sub1
       - 自建节点
     include-all: true
 
@@ -88,84 +88,84 @@ proxy-groups:
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
 #  - name: "Spotify"
 #    type: select
 #    proxies:
 #      - DIRECT
 #    use:
-#      - Nexitally
+#      - Sub1
 
   - name: "Bilibili"
     type: select
     proxies:
       - DIRECT
     use:
-      - Nexitally
+      - Sub1
 
   - name: "Telegram"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "SocialMedia"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "Speedtest"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "PayPal"
     type: select
     proxies:
       - DIRECT
     use:
-      - Nexitally
+      - Sub1
 
   - name: "TestFlight"
     type: select
     proxies:
       - DIRECT
     use:
-      - Nexitally
+      - Sub1
 
   - name: "Apple"
     type: select
     proxies:
       - DIRECT
     use:
-      - Nexitally
+      - Sub1
 
   - name: "GoogleVoice"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "GoogleDrive"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "Google"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "Microsoft"
     type: select
@@ -173,7 +173,7 @@ proxy-groups:
       - DIRECT
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "Emby"
     type: select
@@ -182,14 +182,14 @@ proxy-groups:
       - Proxy
       - YXVM Trojan
     use:
-      - Nexitally
+      - Sub1
 
   - name: "NBA"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "Foumula1"
     type: select
@@ -197,14 +197,14 @@ proxy-groups:
       - DIRECT
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "ChatGPT"
     type: select
     proxies:
       - Proxy
     use:
-      - Nexitally
+      - Sub1
 
   - name: "漏网之鱼"
     type: select
@@ -212,7 +212,7 @@ proxy-groups:
       - Proxy
       - DIRECT
     use:
-      - Nexitally
+      - Sub1
 
 proxy-providers:
   守候:
@@ -224,9 +224,9 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 6000
 
-  Nexitally:
+  Sub1:
     type: http
-    url: "https://llspns.xyz/?L2Rvd25sb2FkQ29uZmlnL1NoYWRvd1JvY2tldEltcG9ydFNlcnZpY2UuYXNweD90PXNzbiZ1cms9MDMwODQ2MzUtNjY0OC00NTdjLWJjZjUtODM0NDIzNzYxZWU3Jm1tPTMxNTUwMyY5NzZiYzA3NjFmOWM0MzM1OWJhZjk2NDJkZg=="
+    url: "https://api.surfgb.me/api/v1/client/subscribe?token=6bdc4586ed4ab26030ac486275431bd0"
     interval: 86400
     health-check:
       enable: true
