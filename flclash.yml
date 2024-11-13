@@ -72,7 +72,7 @@ proxy-groups:
     use:
       - Sub1
       - 自建节点
-    include-all: true
+    #include-all: true
 
   - name: "Netflix"
     type: select
