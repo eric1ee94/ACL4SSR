@@ -70,7 +70,6 @@ proxy-groups:
     proxies:
       - DIRECT
     use:
-      - 守候
       - Sub1
       - 自建节点
     include-all: true
@@ -90,12 +89,12 @@ proxy-groups:
     use:
       - Sub1
 
-#  - name: "Spotify"
-#    type: select
-#    proxies:
-#      - DIRECT
-#    use:
-#      - Sub1
+  - name: "Spotify"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - Sub1
 
   - name: "Bilibili"
     type: select
@@ -226,7 +225,7 @@ proxy-providers:
 
   Sub1:
     type: http
-    url: "https://api.surfgb.me/api/v1/client/subscribe?token=6bdc4586ed4ab26030ac486275431bd0"
+    url: "https://159.75.130.241/easynet/api/v1/client/subscribe?token=adf2c5b29139127a2435f99ed0cac67d"
     interval: 86400
     health-check:
       enable: true
@@ -447,6 +446,7 @@ rules:
   - RULE-SET,Microsoft-rules,Microsoft
 # Geo  
   - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,spotify,Spotify
   - GEOSITE,whatsapp,SocialMedia
   - GEOSITE,apkpure,Proxy
   - GEOSITE,google,Google
