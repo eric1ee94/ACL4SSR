@@ -492,8 +492,8 @@ rules:
   - RULE-SET,Microsoft-rules,Microsoft
 # Geo  
   - GEOSITE,google-cn,DIRECT
-  - GEOSITE,google-!cn,Google
   - GEOSITE,youtube,Youtube
+  - GEOSITE,google,Google
   - GEOIP,google,Google
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,spotify,Spotify
@@ -510,7 +510,7 @@ rules:
   - GEOSITE,icloud@cn,DIRECT
   - GEOSITE,apple@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
-  - GEOSITE,apple-!cn,Apple
+  - GEOSITE,apple,Apple
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,facebook,Proxy
   - GEOSITE,amazon,Proxy
