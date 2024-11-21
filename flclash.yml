@@ -184,14 +184,14 @@ proxy-groups:
     use:
       - Sub1
 
-  - name: "GoogleDrive"
-    type: select
-    proxies:
-      - Proxy
-      - SE1
-      - SE2
-    use:
-      - Sub1
+#  - name: "GoogleDrive"
+#   type: select
+#    proxies:
+#      - Proxy
+#      - SE1
+#      - SE2
+#    use:
+#      - Sub1
 
   - name: "Google"
     type: select
@@ -304,11 +304,11 @@ rule-providers:
 #    type: http
 #    interval: 86400
 #    url: https://raw.githubusercontent.com/eric1ee94/ACL4SSR/master/f1.yaml
-  Gdrive-rules:
-    behavior: classical
-    type: http
-    interval: 86400
-    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/GoogleDrive/GoogleDrive_No_Resolve.yaml
+#  Gdrive-rules:
+#    behavior: classical
+#    type: http
+#    interval: 86400
+#    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/GoogleDrive/GoogleDrive_No_Resolve.yaml
   GoogleVoice-rules:
     behavior: classical
     type: http
@@ -382,12 +382,12 @@ rule-providers:
     interval: 86400
     name: Twitter
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Twitter/Twitter.yaml
-  Youtube-rules:
-    behavior: classical
-    type: http
-    interval: 86400
-    name: Youtube
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
+#  Youtube-rules:
+#    behavior: classical
+#    type: http
+#    interval: 86400
+#    name: Youtube
+#    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
   Bilibili-rules:
     behavior: classical
     type: http
@@ -477,20 +477,24 @@ rules:
   - RULE-SET,BilibiliIntl-rules,Bilibili
   - RULE-SET,Spark-rules,Proxy
   - RULE-SET,GoogleVoice-rules,GoogleVoice
-  - RULE-SET,Gdrive-rules,GoogleDrive
+#  - RULE-SET,Gdrive-rules,GoogleDrive
   - RULE-SET,Line-rules,SocialMedia
   - RULE-SET,ChatGPT-rules,ChatGPT
 #  - RULE-SET,Netflix-rules,Netflix
-  - RULE-SET,Youtube-rules,Youtube
+#  - RULE-SET,Youtube-rules,Youtube
 #  - RULE-SET,Spotify-rules,Spotify
   - RULE-SET,Telegram-rules,Telegram
   - RULE-SET,Twitter-rules,SocialMedia
   - RULE-SET,Speedtest-rules,Speedtest
   - RULE-SET,PayPal-rules,PayPal
   - RULE-SET,TestFlight-rules,TestFlight
-  - RULE-SET,Apple-rules,Apple
+ # - RULE-SET,Apple-rules,Apple
   - RULE-SET,Microsoft-rules,Microsoft
 # Geo  
+  - GEOSITE,google-cn,DIRECT
+  - GEOSITE,google-!cn,Google
+  - GEOSITE,youtube,Youtube
+  - GEOIP,google,Google
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,spotify,Spotify
   - GEOSITE,whatsapp,SocialMedia
@@ -506,6 +510,7 @@ rules:
   - GEOSITE,icloud@cn,DIRECT
   - GEOSITE,apple@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
+  - GEOSITE,apple-!cn,Apple
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,facebook,Proxy
   - GEOSITE,amazon,Proxy
