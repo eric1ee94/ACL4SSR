@@ -85,6 +85,15 @@ proxy-groups:
     use:
       - Sub1
 
+  - name: "Max"
+    type: select
+    proxies:
+      - Proxy
+      - SE1
+      - SE2
+    use:
+      - Sub1      
+
   - name: "Youtube"
     type: select
     proxies:
@@ -491,6 +500,7 @@ rules:
   - GEOSITE,telegram,Telegram
   - GEOIP,netflix,Netflix
   - GEOSITE,netflix,Netflix  
+  - GEOSITE,hbo,Max    
   - GEOSITE,bilibili,Bilibili
   - GEOSITE,openai,ChatGPT
   - GEOSITE,icloud@cn,DIRECT
