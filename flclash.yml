@@ -76,6 +76,12 @@ proxies:
     skip-cert-verify: true
 
 proxy-groups:
+  - name: "RL1"
+    type: relay
+    proxies:
+      - SE2
+      - SE1
+    
   - name: "Proxy"
     type: select
     #filter: "Hong Kong 08|GuGu Trojan|YXVM Trojan"
@@ -83,6 +89,7 @@ proxy-groups:
       - DIRECT
       - SE1
       - SE2
+      - RL1
     use:
       - Sub1
       - 自建节点
