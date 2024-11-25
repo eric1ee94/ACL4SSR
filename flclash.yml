@@ -51,9 +51,21 @@ proxies:
       - http/1.1
     skip-cert-verify: true
     
+#  - name: "SE2"
+#    type: trojan
+#    server: 46.3.106.16.nip.io 
+#    port: 443
+#    password: lx5844501314
+#    udp: true
+#    sni: 46.3.106.16.nip.io  # aka server name
+#    alpn:
+#      - h2
+#      - http/1.1
+#    skip-cert-verify: true
+
   - name: "SE2"
     type: trojan
-    server: 46.3.106.16.nip.io 
+    server: 47.243.42.115.nip.io 
     port: 443
     password: lx5844501314
     udp: true
