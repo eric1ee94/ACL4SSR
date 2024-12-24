@@ -92,7 +92,6 @@ proxy-groups:
       - RL1
     use:
       - Sub1
-      - 自建节点
     #include-all: true
 
   - name: "Netflix"
