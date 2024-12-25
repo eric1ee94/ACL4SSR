@@ -40,16 +40,21 @@ external-controller: 127.0.0.1:9090
 
 proxies:
   - name: "SE1"
-    type: trojan
-    server: trojan.guguemby.site
-    port: 443
-    password: lx5844501314
-    udp: true
-    sni: trojan.guguemby.site  
+    type: hysteria
+    server: trojan.gugumedia.org
+    ports: 47000-48000
+    auth_str: lx5844501314
     alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: true
+      - h3
+    protocol: udp
+    up: 330
+    down: 330
+    sni: trojan.gugumedia.org
+    skip-cert-verify: false
+    recv_window_conn: 30932992
+    recv_window: 123731968
+    disable_mtu_discovery: true
+    fast-open: true
     
 #  - name: "SE2"
 #    type: trojan
