@@ -41,11 +41,11 @@ external-controller: 127.0.0.1:9090
 proxies:
   - name: "SE1"
     type: trojan
-    server: 38.49.46.246.nip.io
+    server: trojan.guguemby.site
     port: 443
     password: lx5844501314
     udp: true
-    sni: 38.49.46.246.nip.io  # aka server name
+    sni: trojan.guguemby.site  
     alpn:
       - h2
       - http/1.1
