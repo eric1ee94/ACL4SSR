@@ -42,11 +42,11 @@ proxies:
   - name: "SE1"
     type: hysteria
     server: trojan.gugumedia.org
-    ports: 47000-48000
+    port: 57434
     auth_str: lx5844501314
     alpn:
       - h3
-    protocol: udp
+    protocol: wechat-video
     up: 330
     down: 330
     sni: trojan.gugumedia.org
