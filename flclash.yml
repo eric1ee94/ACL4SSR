@@ -278,11 +278,11 @@ proxy-groups:
       - Sub1
 
 proxy-providers:
- # 守候: "https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae"
+ # 守候高级: "https://sub1.sntp.dev/baseStr?token=eaae1a72734dd1db15b0098449535724"
 
   Sub1:
     type: http
-    url: "https://sub.xttlove.uk/api/v1/client/subscribe?token=466f3b8e8b37fcb87030ce200a18fcae"
+    url: "https://sub1.sntp.dev/baseStr?token=eaae1a72734dd1db15b0098449535724"
     interval: 86400
     health-check:
       enable: true
