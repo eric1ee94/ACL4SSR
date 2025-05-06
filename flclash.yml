@@ -287,7 +287,7 @@ proxy-providers:
 
   Sub1:
     type: http
-    url: "https://sub1.sntp.dev/baseStr?tokuen=480ec26e46129a853bbb4fdca2e78b49"
+    url: "https://sub1.sntp.dev/baseStr?token=3727d11a94fdd7f4c5da6b5526ef1737&timestamp=5869"
     interval: 86400
     health-check:
       enable: true
