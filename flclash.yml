@@ -287,7 +287,7 @@ proxy-providers:
 
   Sub1:
     type: http
-    url: "https://sub1.sntp.dev/baseStr?token=3727d11a94fdd7f4c5da6b5526ef1737&timestamp=5869"
+    url: "https://api.immtel.co/?L1N1YnNjcmlwdGlvbi9DbGFzaD90Zm89MSZzaWQ9MjA5MjgmdG9rZW49cEFiUUo3bXpiOUQmbW09MzEwMTQmYjE1ZjEwMDg5MDViNGZlYTk5ZmE1ZjQ0MmYz"
     interval: 86400
     health-check:
       enable: true
