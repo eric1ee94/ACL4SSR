@@ -287,7 +287,7 @@ proxy-providers:
 
   Sub1:
     type: http
-    url: "https://api.immtel.co/?L1N1YnNjcmlwdGlvbi9DbGFzaD90Zm89MSZzaWQ9MjA5MjgmdG9rZW49cEFiUUo3bXpiOUQmbW09MzEwMTQmYjE1ZjEwMDg5MDViNGZlYTk5ZmE1ZjQ0MmYz"
+    url: "https://api.immtel.co/?L1N1YnNjcmlwdGlvbi9TaGFkb3dSb2NrZXRJbXBvcnRTZXJ2aWNlP3Q9c2lwMDAyJnNpZD0yMDkyOCZ0b2tlbj0xM2M0NjEzYzI4MWE0ZSZtbT0zMTAxNCZrdG1tPVBOTGolMmZtZFI5ZFF2bFJQcm5oMDV0dyUzZCUzZCY4YzI2"
     interval: 86400
     health-check:
       enable: true
