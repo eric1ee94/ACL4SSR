@@ -89,7 +89,7 @@ proxies:
       - SE2
     use:
       - Sub1
-      - sub2
+      - Sub2
     #include-all: true
 
   - name: "Netflix"
