@@ -79,13 +79,6 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: true
-
-proxy-groups:
-  - name: "RL1"
-    type: relay
-    proxies:
-      - SE2
-      - SE1
     
   - name: "Proxy"
     type: select
@@ -94,9 +87,9 @@ proxy-groups:
       - DIRECT
       - SE1
       - SE2
-      - RL1
     use:
       - Sub1
+      - sub2
     #include-all: true
 
   - name: "Netflix"
@@ -284,10 +277,19 @@ proxy-groups:
 
 proxy-providers:
  # 守候高级: "https://sub1.sntp.dev/baseStr?token=eaae1a72734dd1db15b0098449535724"
-
+#IMM
   Sub1:
     type: http
     url: "https://api.immtel.co/?L1N1YnNjcmlwdGlvbi9TaGFkb3dSb2NrZXRJbXBvcnRTZXJ2aWNlP3Q9c2lwMDAyJnNpZD0yMDkyOCZ0b2tlbj0xM2M0NjEzYzI4MWE0ZSZtbT0zMTAxNCZrdG1tPVBOTGolMmZtZFI5ZFF2bFJQcm5oMDV0dyUzZCUzZCY4YzI2"
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 6000
+#守候高级
+  Sub2:
+    type: http
+    url: "https://sub1.sntp.dev/baseStr?token=bfcc1da86de5cce2218f4b5d0fdea7be&timestamp=5869"
     interval: 86400
     health-check:
       enable: true
