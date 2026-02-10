@@ -281,7 +281,7 @@ proxy-providers:
 #IMM
   Sub1:
     type: http
-    url: "https://api.prodigal4936.com/?L1N1YnNjcmlwdGlvbi9DbGFzaD9zaWQ9MjU2NjgmbHN0PTEmdG9rZW49MWEwNWRjOTU4NGU0MDgmbW09MzU3NTQma3RtbT1meUNod0RQdTVHemVMQm8lMmIyJTJma0Z1dyUzZCUzZCY5YTYwYQ=="
+    url: "https://api.prodigal4936.com/?L1N1YnNjcmlwdGlvbi9DbGFzaD9zaWQ9MjU2NjgmbHN0PTEmdG9rZW49MThlOTg5YzI1YjM5OTYmbW09MzU3NTQma3RtbT1meUNod0RQdTVHeDlEQUp3WUVlZ09RJTNkJTNkJmI0ZjBiNGJlNw=="
     interval: 86400
     health-check:
       enable: true
