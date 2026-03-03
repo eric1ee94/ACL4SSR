@@ -40,21 +40,19 @@ external-controller: 127.0.0.1:9090
 
 proxies:
   - name: "SE1"
-    type: hysteria
-    server: trojan.gugumedia.org
-    port: 57434
-    auth_str: lx5844501314
-    alpn:
-      - h3
-    protocol: wechat-video
-    up: 330
-    down: 330
-    sni: trojan.gugumedia.org
-    skip-cert-verify: false
-    recv_window_conn: 30932992
-    recv_window: 123731968
-    disable_mtu_discovery: true
-    fast-open: true
+    type: vless
+    server: 142.248.139.192
+    port: 443
+    uuid: 372fbe6c-2305-4c4b-9b59-b6b63fa46834
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: plf6ooy81bMnHj78QssnGjYdOR0o3KFGtQc1vZrQrQs
+      short-id:
+    client-fingerprint: chrome
     
 #  - name: "SE2"
 #    type: trojan
@@ -277,7 +275,6 @@ proxy-groups:
       - Sub1
 
 proxy-providers:
- # 守候高级: "https://sub1.sntp.dev/baseStr?token=eaae1a72734dd1db15b0098449535724"
 #IMM
   Sub1:
     type: http
