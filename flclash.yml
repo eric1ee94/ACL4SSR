@@ -569,7 +569,6 @@ rules:
   - GEOSITE,netflix,Netflix  
   - GEOSITE,hbo,Max    
   - GEOSITE,bilibili,Bilibili
-  - GEOSITE,openai,ChatGPT
   - GEOSITE,icloud@cn,DIRECT
   - GEOSITE,apple@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
