@@ -1,42 +1,94 @@
 port: 7890
 socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-allow-lan: false
-mode: Rule
+mixed-port: 7892
+redir-port: 7893
+tproxy-port: 7894
+
+unified-delay: true
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+tcp-concurrent: true
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+allow-lan: true
+mode: rule
 log-level: info
-ipv6: false
-prefer-h3: true
-hosts:
-dns:
-  default-nameserver:
-    - 119.29.29.29
-    - 119.28.28.28
-    - 223.5.5.5
-    - 114.114.114.114
-  nameserver:
-    - 223.5.5.5
-    - 114.114.114.114
+ipv6: true
+udp: true
+
+external-controller: 0.0.0.0:9090
+# external-ui: ui
+# external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
+
+geox-url:
+  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
+  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
   enable: true
-  enhanced-mode: fake-ip
-  fake-ip-filter:
-    - '*.lan'
-    - localhost.ptlogin2.qq.com
-    - +.srv.nintendo.net
-    - +.stun.playstation.net
-    - lens.l.google.com
-    - +.msftconnecttest.com
-    - +.msftncsi.com
-    - +.xboxlive.com
-    - msftconnecttest.com
-    - xbox.*.microsoft.com
-    - '*.battlenet.com.cn'
-    - '*.battlenet.com'
-    - '*.blzstatic.cn'
-    - '*.battle.net'
-  fake-ip-range: 198.18.0.1/16
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
+
+  skip-domain:
+    - Mijia Cloud
+
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+
+# P2P下载端口
+listeners:
+- name: socks5-in-1
+  type: socks
+  port: 10808
+  listen: 0.0.0.0
+  udp: true
+  users: []
+  proxy: DIRECT
+
+dns:
+  enable: true
+  prefer-h3: true
   listen: 0.0.0.0:1053
-external-controller: 127.0.0.1:9090
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter:
+    - "*"
+    - +.lan
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+
+# 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 6 秒一次健康检查]
+NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 6}}
 
 proxies:
   - name: "SE1" #Ktti-JP🇯🇵
@@ -258,7 +310,7 @@ proxy-groups:
     use:
       - Sub1
 
-  - name: "ChatGPT"
+  - name: "AIGC"
     type: select
     proxies:
       - Proxy
@@ -304,11 +356,11 @@ rule-providers:
     type: http
     interval: 86400
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical.yaml
-  ChatGPT-rules:
+  AIGC-rules:
     behavior: classical
     type: http
     interval: 86400
-    name: ChatGPT
+    name: AIGC
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
 #  Formula1-rules:
 #    behavior: classical
@@ -490,7 +542,7 @@ rules:
   - RULE-SET,GoogleVoice-rules,GoogleVoice
 #  - RULE-SET,Gdrive-rules,GoogleDrive
   - RULE-SET,Line-rules,SocialMedia
-  - RULE-SET,ChatGPT-rules,ChatGPT
+  - RULE-SET,AIGC-rules,AIGC
 #  - RULE-SET,Netflix-rules,Netflix
 #  - RULE-SET,Youtube-rules,Youtube
 #  - RULE-SET,Spotify-rules,Spotify
