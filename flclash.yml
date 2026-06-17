@@ -118,7 +118,7 @@ proxies:
 #      - http/1.1
 #    skip-cert-verify: true
 
-  - name: "SE2" #ISIF HK COP🇺🇸
+  - name: "SE2" #ISIF HK COP🇭🇰
     type: vless
     server: 64.49.44.103
     port: 443
@@ -132,7 +132,21 @@ proxies:
       public-key: 7_Bjx9LGjWxpXEKKe66QjkKwKZmAuFE5kujP_Gb4TWg
       short-id: d99183772382feae
     client-fingerprint: chrome
-
+    
+  - name: "SE3" #华纳香港🇭🇰
+    type: vless
+    server: 172.81.100.85
+    port: 35337
+    uuid: 913a2cf0-1621-3816-b7b5-d3e4abb280af
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: v53Sx3Z5Vm6KZXv0UeM1WKUyGWgXeEQBQekFpVITR00
+      short-id: 98f805b150e83544
+    client-fingerprint: chrome
 proxy-groups:
   - name: "Proxy"
     type: select
@@ -141,9 +155,9 @@ proxy-groups:
       - DIRECT
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
-      - Sub2
     #include-all: true
 
   - name: "Netflix"
@@ -152,6 +166,7 @@ proxy-groups:
       - Proxy
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -161,6 +176,7 @@ proxy-groups:
       - Proxy
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1      
 
@@ -170,6 +186,7 @@ proxy-groups:
       - Proxy
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -179,6 +196,7 @@ proxy-groups:
       - DIRECT
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -188,6 +206,7 @@ proxy-groups:
       - DIRECT
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -197,6 +216,7 @@ proxy-groups:
       - Proxy
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -206,6 +226,7 @@ proxy-groups:
       - Proxy
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -215,6 +236,7 @@ proxy-groups:
       - Proxy
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -289,6 +311,7 @@ proxy-groups:
       - Proxy
       - SE1
       - SE2
+      - SE3
     use:
       - Sub1
 
@@ -330,7 +353,7 @@ proxy-groups:
       - Sub1
 
 proxy-providers:
-#IMM
+#ENET
   Sub1:
     type: http
     url: "https://www.5bx6h.net/s/w0y4i2w60ibw"
