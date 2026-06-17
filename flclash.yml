@@ -333,21 +333,21 @@ proxy-providers:
 #IMM
   Sub1:
     type: http
-    url: "https://api.prodigal4936.com/?L1N1YnNjcmlwdGlvbi9DbGFzaD9zaWQ9MjU2NjgmbHN0PTEmdG9rZW49MThlOTg5YzI1YjM5OTYmbW09MzU3NTQma3RtbT1meUNod0RQdTVHeDlEQUp3WUVlZ09RJTNkJTNkJmI0ZjBiNGJlNw=="
+    url: "https://www.5bx6h.net/s/w0y4i2w60ibw"
     interval: 86400
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 6000
 #守候高级
-  Sub2:
-    type: http
-    url: "https://sub1.sntp.dev/baseStr?token=bfcc1da86de5cce2218f4b5d0fdea7be&timestamp=5869"
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 6000
+   #Sub2:
+    #type: http
+    #url: "https://sub1.sntp.dev/baseStr?token=bfcc1da86de5cce2218f4b5d0fdea7be&timestamp=5869"
+    #interval: 86400
+    #health-check:
+      #enable: true
+      #url: http://www.gstatic.com/generate_204
+      #interval: 6000
 
       
 rule-providers:
