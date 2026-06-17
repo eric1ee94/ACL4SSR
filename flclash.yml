@@ -118,19 +118,19 @@ proxies:
 #      - http/1.1
 #    skip-cert-verify: true
 
-  - name: "SE2" #Misaka-LA优化🇺🇸
+  - name: "SE2" #ISIF HK COP🇺🇸
     type: vless
-    server: 209.209.59.191
+    server: 64.49.44.103
     port: 443
-    uuid: eac616f1-be62-4652-96d5-dd207e5760cb
+    uuid: f45554aa-e340-30e9-952e-de1c558f1238
     udp: true
     tls: true
     flow: xtls-rprx-vision
     network: tcp
-    servername: www.cloudflare.com
+    servername: learn.microsoft.com
     reality-opts:
-      public-key: jpTxweFkjzwgZGUET89_ZMeIvvBR7UijbQUAWAxVlkQ
-      short-id:
+      public-key: 7_Bjx9LGjWxpXEKKe66QjkKwKZmAuFE5kujP_Gb4TWg
+      short-id: d99183772382feae
     client-fingerprint: chrome
 
 proxy-groups:
