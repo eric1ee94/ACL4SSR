@@ -468,17 +468,17 @@ rule-providers:
     interval: 86400
     name: Twitter
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Twitter/Twitter.yaml
-#  Youtube-rules:
-#    behavior: classical
-#    type: http
-#    interval: 86400
-#    name: Youtube
-#    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
-  Bilibili-rules:
+  Youtube-rules:
     behavior: classical
     type: http
     interval: 86400
     name: Youtube
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
+  Bilibili-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: Bilibili
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
   Steam-CN-rules:
     behavior: classical
@@ -576,7 +576,7 @@ rules:
   - RULE-SET,TestFlight-rules,TestFlight
  # - RULE-SET,Apple-rules,Apple
   - RULE-SET,Microsoft-rules,Microsoft
-  - RULE-SET,Steam-CN,DIRECT
+  - RULE-SET,Steam-CN-rules,DIRECT
 # Geo  
   - GEOSITE,google-cn,DIRECT
   - GEOSITE,youtube,Youtube
