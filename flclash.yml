@@ -560,7 +560,6 @@ rules:
   - DOMAIN-SUFFIX,f1lasvegasgrandprix.com,Foumula1
 # Rule Set   
   - RULE-SET,Bilibili-rules,Bilibili
-  - RULE-SET,BilibiliIntl-rules,Bilibili
   - RULE-SET,Spark-rules,Proxy
   - RULE-SET,GoogleVoice-rules,GoogleVoice
 #  - RULE-SET,Gdrive-rules,GoogleDrive
