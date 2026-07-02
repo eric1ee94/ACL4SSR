@@ -120,7 +120,7 @@ proxies:
 
   - name: "SE2" #ISIF HK COP🇭🇰
     type: vless
-    server: 64.49.44.103
+    server: 152.175.4.103 
     port: 443
     uuid: f45554aa-e340-30e9-952e-de1c558f1238
     udp: true
