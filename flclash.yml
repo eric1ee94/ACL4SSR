@@ -148,7 +148,7 @@ proxies:
       short-id: 98f805b150e83544
     client-fingerprint: chrome
 
-  - name: "SE4-Dmit-US🇺🇸" Dmit-US🇺🇸
+  - name: "SE4-Dmit-US🇺🇸" #Dmit-US🇺🇸
     type: vless
     server: 179.255.96.94
     port: 443
