@@ -120,7 +120,7 @@ proxies:
 
   - name: "SE2-ISIF-HK-COP🇭🇰" #ISIF HK COP🇭🇰
     type: vless
-    server: 152.175.4.103 
+    server: 152.175.4.103
     port: 443
     uuid: f45554aa-e340-30e9-952e-de1c558f1238
     udp: true
@@ -169,9 +169,10 @@ proxy-groups:
     #filter: "Hong Kong 08|GuGu Trojan|YXVM Trojan"
     proxies:
       - DIRECT
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
     #include-all: true
@@ -180,9 +181,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -190,9 +192,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1      
 
@@ -200,9 +203,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -210,9 +214,10 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -220,9 +225,10 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -230,9 +236,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -240,9 +247,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -250,9 +258,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -260,8 +269,10 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -269,8 +280,10 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -278,8 +291,10 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -287,8 +302,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -305,8 +322,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -315,8 +334,10 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxy
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -325,9 +346,10 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxy
-      - SE1
-      - SE2
-      - SE3
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -335,8 +357,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -344,8 +368,10 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -353,8 +379,10 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
@@ -363,8 +391,10 @@ proxy-groups:
     proxies:
       - Proxy
       - DIRECT
-      - SE1
-      - SE2
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
     use:
       - Sub1
 
