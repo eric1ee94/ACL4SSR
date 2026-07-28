@@ -91,7 +91,7 @@ dns:
 NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 6}}
 
 proxies:
-  - name: "SE1" #Ktti-JP🇯🇵
+  - name: "SE1-Ktti-JP🇯🇵" #Ktti-JP🇯🇵
     type: vless
     server: 142.248.139.192
     port: 443
@@ -118,7 +118,7 @@ proxies:
 #      - http/1.1
 #    skip-cert-verify: true
 
-  - name: "SE2" #ISIF HK COP🇭🇰
+  - name: "SE2-ISIF-HK-COP🇭🇰" #ISIF HK COP🇭🇰
     type: vless
     server: 152.175.4.103 
     port: 443
@@ -133,7 +133,7 @@ proxies:
       short-id: d99183772382feae
     client-fingerprint: chrome
     
-  - name: "SE3" #华纳香港🇭🇰
+  - name: "SE3-Huana-HK🇭🇰" #华纳香港🇭🇰
     type: vless
     server: 172.81.100.85
     port: 35337
@@ -147,6 +147,22 @@ proxies:
       public-key: v53Sx3Z5Vm6KZXv0UeM1WKUyGWgXeEQBQekFpVITR00
       short-id: 98f805b150e83544
     client-fingerprint: chrome
+
+  - name: "SE4-Dmit-US🇺🇸" Dmit-US🇺🇸
+    type: vless
+    server: 179.255.96.94
+    port: 443
+    uuid: 8a9f0401-4da2-3abe-bec7-5e645c31a9c1
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: Dj3QX7G6AmUjH-qGDkFM1MSBLpI3-aMl3o4C2hburxQ
+      short-id: 59103decafda763b
+    client-fingerprint: chrome
+    
 proxy-groups:
   - name: "Proxy"
     type: select
