@@ -18,7 +18,7 @@ redir-port: 7893
 tproxy-port: 7894
 
 unified-delay: true
-geodata-mode: true
+geodata-mode: false
 geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 24
@@ -37,8 +37,9 @@ external-controller: 0.0.0.0:9090
 # external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
 
 geox-url:
-  # 官方源（原 kelee.one 源 403 死链，GEOIP 规则已失效）
-  geoip: 'https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.dat'
+  # GEOIP: MetaCubeX geoip.metadb（全球全量：国家 + 厂商 ASN 分类，已验证 google/telegram/netflix/cn 均可用）
+  mmdb: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.metadb'
+  # GEOSITE: 保持 Loyalsoldier 官方源（geosite 不依赖 mmdb）
   geosite: 'https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat'
 
 profile:
@@ -675,8 +676,8 @@ rules:
   - GEOSITE,apkpure,Proxy
   - GEOSITE,telegram,Telegram
   - GEOIP,telegram,Telegram
-  - GEOIP,netflix,Netflix
   - GEOSITE,netflix,Netflix
+  - GEOIP,netflix,Netflix
   - GEOSITE,hbo,Max
   - GEOSITE,bilibili,Bilibili
   - GEOSITE,icloud@cn,DIRECT
