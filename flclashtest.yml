@@ -23,7 +23,7 @@ geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 24
 tcp-concurrent: true
-find-process-mode: false
+find-process-mode: "off"
 global-client-fingerprint: chrome
 
 allow-lan: true
