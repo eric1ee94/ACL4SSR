@@ -1,0 +1,115 @@
+# TUN 定位测试版（2026-08-28）
+# 目的：验证 TUN 全断是否由"geo 数据依赖"引起
+# 与完整配置的差异：无 geox-url（不下载 GEOIP/GEOSITE）、无 rule-providers（不下载规则集）、无 GEOSITE/GEOIP 规则、
+# 无 sniffer、无 geosite 引用；保留节点+订阅+最简 DNS
+# 若此版本 TUN 能上网 → 元凶 = geo 数据下载/引用；若仍全断 → 元凶在更基础处
+
+port: 7890
+socks-port: 7891
+mixed-port: 7892
+
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+udp: true
+
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+
+dns:
+  enable: false
+  listen: 0.0.0.0:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+  nameserver:
+    - 223.5.5.5
+
+proxies:
+  - name: "SE1-Ktti-JP🇯🇵"
+    type: vless
+    server: 142.248.139.192
+    port: 443
+    uuid: 372fbe6c-2305-4c4b-9b59-b6b63fa46834
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: plf6ooy81bMnHj78QssnGjYdOR0o3KFGtQc1vZrQrQs
+      short-id:
+    client-fingerprint: chrome
+  - name: "SE2-ISIF-HK-COP🇭🇰"
+    type: vless
+    server: 152.175.4.103
+    port: 443
+    uuid: f45554aa-e340-30e9-952e-de1c558f1238
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: 7_Bjx9LGjWxpXEKKe66QjkKwKZmAuFE5kujP_Gb4TWg
+      short-id: d99183772382feae
+    client-fingerprint: chrome
+  - name: "SE3-Huana-HK🇭🇰"
+    type: vless
+    server: 172.81.100.85
+    port: 35337
+    uuid: 913a2cf0-1621-3816-b7b5-d3e4abb280af
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: v53Sx3Z5Vm6KZXv0UeM1WKUyGWgXeEQBQekFpVITR00
+      short-id: 98f805b150e83544
+    client-fingerprint: chrome
+  - name: "SE4-Dmit-US🇺🇸"
+    type: vless
+    server: 179.255.96.94
+    port: 443
+    uuid: 8a9f0401-4da2-3abe-bec7-5e645c31a9c1
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: Dj3QX7G6AmUjH-qGDkFM1MSBLpI3-aMl3o4C2hburxQ
+      short-id: 59103decafda763b
+    client-fingerprint: chrome
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - DIRECT
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
+  - name: "漏网之鱼"
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+      - SE1-Ktti-JP🇯🇵
+      - SE2-ISIF-HK-COP🇭🇰
+      - SE3-Huana-HK🇭🇰
+      - SE4-Dmit-US🇺🇸
+
+rules:
+  # 国内常用域名直连，其余兜底（可手动切节点）
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - MATCH,漏网之鱼
