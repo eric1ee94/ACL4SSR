@@ -1,0 +1,652 @@
+# FlClash / mihomo 修复版配置
+# 修复日期: 2026-08-19
+# 基于原 flclash.yml 修复以下问题：
+#  1. fake-ip-filter 误配 "*"（等于禁用 fake-ip，导致 TUN 断网）→ 删除，改为白名单式真实 IP 列表
+#  2. GEOIP 数据源指向 kelee.one（实测 403，GEOIP 规则全废）→ 换 Loyalsoldier 官方源
+#  3. prefer-h3: true（DoH 走 QUIC，易被干扰导致解析超时）→ false
+#  4. find-process-mode: strict（macOS 高 CPU）→ false
+#  5. 节点健康检查 6 秒一次（CPU/流量风暴）→ 60 秒
+#  6. sniffer 全量 override（每个连接嗅探+改目的地，高 CPU）→ 只嗅探不改目的地
+#  7. tun.stack: system → gvisor（大幅降低 CPU）
+#  8. fake-ip-range 28.0.0.1/8（公网真实段）→ 198.18.0.1/16（IANA 保留测试段）
+#  9. DNS 增加 fallback + fallback-filter（防污染）+ respect-rules
+# 改动记录:
+# [2026-08-31] 新增订阅 Sub2（备注 GoMaMi，来源 mmw.xiaov.uno），并在全部活跃策略组 use 中引用
+#   - 订阅原始链接 t=loon 返回 Loon 节点格式，mihomo provider 无法解析 → 改用 t=clash 参数
+#   - 原注释占位的 Sub2（守候高级 sub1.sntp.dev）被本订阅替换
+# [2026-09-16] 精简版：节点只保留华纳香港（SE3-Huana-HK🇭🇰）
+#   - SE1-Ktti-JP / SE2-ISIF-HK-COP / SE4-Dmit-US 节点定义已注释（保留参数便于恢复）
+#   - 全部策略组 proxies 中仅保留 SE3-Huana-HK🇭🇰
+#   - Sub1 / Sub2 订阅 provider 及各组 use 引用已注释，避免订阅节点混入
+# [2026-09-16] 策略组精简：只保留 Proxy 与 漏网之鱼
+#   - 其余 18 个策略组（Netflix/Max/Youtube/Spotify/Bilibili/Telegram/SocialMedia/Speedtest/
+#     PayPal/TestFlight/Apple/GoogleVoice/Google/Microsoft/Emby/NBA/Formula1/AIGC）已整块注释
+#   - 规则出口同步重映射（共 82 条），避免悬空引用：
+#       Emby(3) / Bilibili(2) → DIRECT（自建媒体、国内视频保持直连语义）
+#       其余 77 条 → Proxy（Formula1 39 / NBA 14 / SocialMedia 6 / Telegram 3 / 其余 15）
+#   - 指向 DIRECT / REJECT / Proxy / 漏网之鱼 的规则未改动
+
+port: 7890
+socks-port: 7891
+mixed-port: 7892
+redir-port: 7893
+tproxy-port: 7894
+
+unified-delay: true
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+tcp-concurrent: true
+find-process-mode: "off"
+
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+udp: true
+
+external-controller: 0.0.0.0:9090
+# external-ui: ui
+# external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
+
+geox-url:
+  # GEOIP: MetaCubeX geoip.metadb（全球全量：国家 + 厂商 ASN 分类，已验证 google/telegram/netflix/cn 均可用）
+  mmdb: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.metadb'
+  # GEOSITE: 保持 Loyalsoldier 官方源（geosite 不依赖 mmdb）
+  geosite: 'https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat'
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  force-dns-mapping: false
+  parse-pure-ip: false
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
+
+  skip-domain:
+    - Mijia Cloud
+
+tun:
+  enable: true
+  # [2026-08-28] stack 改回 system：gvisor 在 Stash 上不兼容（TUN 断网）
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+
+# P2P下载端口
+listeners:
+- name: socks5-in-1
+  type: socks
+  port: 10808
+  listen: 0.0.0.0
+  udp: true
+  users: []
+  proxy: DIRECT
+
+dns:
+  enable: true
+  prefer-h3: false
+  listen: 0.0.0.0:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    # --- 游戏联机：必须真实 IP（Surge/Stash 语法 +. 前缀） ---
+    - "+.srv.nintendo.net"
+    - "+.stun.playstation.net"
+    - "+.xboxlive.com"
+    - "+.battlenet.com.cn"
+    - "+.battlenet.com"
+    - "+.blzstatic.cn"
+    - "+.battle.net"
+    # --- 用户服务：Emby / 媒体 302 直链播放 ---
+    - "+.gugumedia.de"
+    - "+.gugumedia.link"
+    - "+.misakaf.org"
+    # --- 国内 IM 长连接（对 fake-ip 敏感） ---
+    - "+.qq.com"
+    - "+.wechat.com"
+    - "+.weixin.qq.com"
+    # --- 本地 ---
+    - "localhost.ptlogin2.qq.com"
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+
+NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 60}}
+
+proxies:
+#  - name: "SE1-Ktti-JP🇯🇵" #Ktti-JP🇯🇵  [2026-09-16 停用，仅保留华纳香港]
+#    type: vless
+#    server: 142.248.139.192
+#    port: 443
+#    uuid: 372fbe6c-2305-4c4b-9b59-b6b63fa46834
+#    udp: true
+#    tls: true
+#    flow: xtls-rprx-vision
+#    network: tcp
+#    servername: www.cloudflare.com
+#    reality-opts:
+#      public-key: plf6ooy81bMnHj78QssnGjYdOR0o3KFGtQc1vZrQrQs
+#      short-id:
+#    client-fingerprint: chrome
+
+#  - name: "SE2"
+#    type: trojan
+#    server: 46.3.106.16.nip.io
+#    port: 443
+#    password: lx5844501314
+#    udp: true
+#    sni: 46.3.106.16.nip.io  # aka server name
+#    alpn:
+#      - h2
+#      - http/1.1
+#    skip-cert-verify: true
+
+#  - name: "SE2-ISIF-HK-COP🇭🇰" #ISIF HK COP🇭🇰  [2026-09-16 停用，仅保留华纳香港]
+#    type: vless
+#    server: 152.175.4.103
+#    port: 443
+#    uuid: f45554aa-e340-30e9-952e-de1c558f1238
+#    udp: true
+#    tls: true
+#    flow: xtls-rprx-vision
+#    network: tcp
+#    servername: learn.microsoft.com
+#    reality-opts:
+#      public-key: 7_Bjx9LGjWxpXEKKe66QjkKwKZmAuFE5kujP_Gb4TWg
+#      short-id: d99183772382feae
+#    client-fingerprint: chrome
+
+  - name: "SE3-Huana-HK🇭🇰" #华纳香港🇭🇰
+    type: vless
+    server: 172.81.100.85
+    port: 35337
+    uuid: 913a2cf0-1621-3816-b7b5-d3e4abb280af
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: v53Sx3Z5Vm6KZXv0UeM1WKUyGWgXeEQBQekFpVITR00
+      short-id: 98f805b150e83544
+    client-fingerprint: chrome
+
+#  - name: "SE4-Dmit-US🇺🇸" #Dmit-US🇺🇸  [2026-09-16 停用，仅保留华纳香港]
+#    type: vless
+#    server: 179.255.96.94
+#    port: 443
+#    uuid: 8a9f0401-4da2-3abe-bec7-5e645c31a9c1
+#    udp: true
+#    tls: true
+#    flow: xtls-rprx-vision
+#    network: tcp
+#    servername: learn.microsoft.com
+#    reality-opts:
+#      public-key: Dj3QX7G6AmUjH-qGDkFM1MSBLpI3-aMl3o4C2hburxQ
+#      short-id: 59103decafda763b
+#    client-fingerprint: chrome
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    #filter: "Hong Kong 08|GuGu Trojan|YXVM Trojan"
+    proxies:
+      - DIRECT
+      - SE3-Huana-HK🇭🇰
+    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+    #  - Sub1
+    #  - Sub2
+    #include-all: true
+
+#  - name: "Netflix"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Max"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Youtube"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Spotify"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Bilibili"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Telegram"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "SocialMedia"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Speedtest"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "PayPal"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "TestFlight"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Apple"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "GoogleVoice"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+##  - name: "GoogleDrive"
+##   type: select
+##    proxies:
+##      - Proxy
+##      - SE1
+##      - SE2
+##    use:
+##      - Sub1
+
+#  - name: "Google"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Microsoft"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Emby"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "NBA"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "Formula1"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - DIRECT
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+#  - name: "AIGC"  [2026-09-16 停用，仅保留 Proxy / 漏网之鱼]
+#    type: select
+#    proxies:
+#      - Proxy
+#      - SE3-Huana-HK🇭🇰
+#    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+#    #  - Sub1
+#    #  - Sub2
+
+  - name: "漏网之鱼"
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+      - SE3-Huana-HK🇭🇰
+    #use:  [2026-09-16 停用订阅引用，仅保留华纳香港]
+    #  - Sub1
+    #  - Sub2
+
+proxy-providers:
+#ENET  [2026-09-16 停用，仅保留华纳香港，恢复时取消注释并恢复各组 use]
+#  Sub1:
+#    type: http
+#    url: "https://www.5bx6h.net/s/w0y4i2w60ibw"
+#    interval: 86400
+#    health-check:
+#      enable: true
+#      url: http://www.gstatic.com/generate_204
+#      interval: 60000
+#GoMaMi  [2026-09-16 停用，仅保留华纳香港]
+#  Sub2:
+#    type: http
+#    url: "https://mmw.xiaov.uno/x/fGk6h_9kCJv4?t=clash"
+#    interval: 86400
+#    health-check:
+#      enable: true
+#      url: http://www.gstatic.com/generate_204
+#      interval: 60000
+
+rule-providers:
+  Apple-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical.yaml
+  AIGC-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: AIGC
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
+#  Formula1-rules:
+#    behavior: classical
+#    type: http
+#    interval: 86400
+#    url: https://raw.githubusercontent.com/eric1ee94/ACL4SSR/master/f1.yaml
+#  Gdrive-rules:
+#    behavior: classical
+#    type: http
+#    interval: 86400
+#    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/GoogleDrive/GoogleDrive_No_Resolve.yaml
+  GoogleVoice-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleVoice/GoogleVoice.yaml
+  Line-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Line/Line.yaml
+  Microsoft-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: Microsoft
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Microsoft/Microsoft.yaml
+#  NBA-rules:
+#    behavior: classical
+#    type: http
+#    interval: 86400
+#    url: https://raw.githubusercontent.com/eric1ee94/ACL4SSR/master/nba.yaml
+#  Netflix-rules:
+#    behavior: ipcidr
+#    type: http
+#    interval: 86400
+#    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_IP.txt
+  PayPal-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: PayPal
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml
+  Spark-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spark/Spark.yaml
+  Speedtest-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: Speedtest
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Speedtest/Speedtest.yaml
+#  Spotify-rules:
+#    behavior: classical
+#    type: http
+#    interval: 86400
+#    name: Spotify
+#    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Spotify/Spotify.yaml
+  Telegram-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: Telegram
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Telegram/Telegram.yaml
+  TestFlight-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: TestFlight
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/TestFlight/TestFlight.yaml
+  TikTok-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: TikTok
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/TikTok/TikTok.yaml
+  Twitter-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: Twitter
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Twitter/Twitter.yaml
+  Youtube-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: Youtube
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
+  Bilibili-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: Bilibili
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
+  Steam-CN-rules:
+    behavior: classical
+    type: http
+    interval: 86400
+    name: SteamCN
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml
+rules:
+# Emby Rules
+  - DOMAIN-KEYWORD,emby,DIRECT
+  - DOMAIN-SUFFIX,gugumedia.link,DIRECT
+  - DOMAIN,embyvip.misakaf.org,DIRECT
+# Google Voice
+  - DOMAIN,voice.telephony.goog,Proxy
+# PT Rule
+  - DOMAIN-SUFFIX,piggo.me,DIRECT # 猪猪pt
+# Social Rules
+  - DOMAIN-KEYWORD,linkedin,Proxy
+  - DOMAIN-KEYWORD,github.com,Proxy
+  - DOMAIN-KEYWORD,firebase,Proxy
+# 机场 Rules
+  - DOMAIN-KEYWORD,xttlove,Proxy #守候
+  - DOMAIN-KEYWORD,llspns,Proxy #奶昔
+# NBA Rules
+  - DOMAIN-KEYWORD,nba,Proxy
+  - DOMAIN,identity.nba.com,Proxy
+  - DOMAIN,cdn.nba.com,Proxy
+  - DOMAIN,watch.nba.com,Proxy
+  - DOMAIN,stats.nba.com,Proxy
+  - DOMAIN,content-api-prod.nba.com,Proxy
+  - DOMAIN-SUFFIX,akamaized.net,Proxy
+  - DOMAIN-SUFFIX,akamaihd.net,Proxy
+  - DOMAIN-SUFFIX,easelive.tv,Proxy
+  - DOMAIN-SUFFIX,omtrdc.net,Proxy
+  - DOMAIN-SUFFIX,neulion.com,Proxy
+  - DOMAIN-SUFFIX,branch.io,Proxy
+  - DOMAIN,sb.scorecardresearch.com,Proxy
+  - DOMAIN,api2.amplitude.com,Proxy
+# F1 Rules
+  - DOMAIN-SUFFIX,f1.com,Proxy
+  - DOMAIN-SUFFIX,formula1.com,Proxy
+  - DOMAIN-SUFFIX,f1experiences.com,Proxy
+  - DOMAIN-SUFFIX,f1authentics.com,Proxy
+  - DOMAIN-SUFFIX,fiaformula1.com,Proxy
+  - DOMAIN-SUFFIX,fiaformula2.com,Proxy
+  - DOMAIN-SUFFIX,fiaformula3.com,Proxy
+  - DOMAIN-SUFFIX,f1esports.com,Proxy
+  - DOMAIN-SUFFIX,f1manager.com,Proxy
+  - DOMAIN-SUFFIX,f1play.com,Proxy
+  - DOMAIN-SUFFIX,bitmovin.com,Proxy
+  - DOMAIN,d2n9h2wits23hf.cloudfront.net,Proxy
+  - DOMAIN,f1prodlive.akamaized.net,Proxy
+  - DOMAIN-SUFFIX,bahraingp.com,Proxy
+  - DOMAIN-SUFFIX,saudiarabiangp.com,Proxy
+  - DOMAIN-SUFFIX,grandprix.com.au,Proxy
+  - DOMAIN-SUFFIX,autodromoimola.it,Proxy
+  - DOMAIN-SUFFIX,f1miamigp.com,Proxy
+  - DOMAIN-SUFFIX,circuitcat.com,Proxy
+  - DOMAIN-SUFFIX,formula1monaco.com,Proxy
+  - DOMAIN-SUFFIX,monacograndprixticket.com,Proxy
+  - DOMAIN-SUFFIX,bakucitycircuit.com,Proxy
+  - DOMAIN-SUFFIX,gpcanada.ca,Proxy
+  - DOMAIN-SUFFIX,montrealgrandprix.com,Proxy
+  - DOMAIN-SUFFIX,silverstone.co.uk,Proxy
+  - DOMAIN-SUFFIX,f1austria.com,Proxy
+  - DOMAIN-SUFFIX,gpfrance.com,Proxy
+  - DOMAIN-SUFFIX,hungaroring.hu,Proxy
+  - DOMAIN-SUFFIX,spagrandprix.com,Proxy
+  - DOMAIN-SUFFIX,dutchgp.com,Proxy
+  - DOMAIN-SUFFIX,monzanet.it,Proxy
+  - DOMAIN-SUFFIX,singaporegp.sg,Proxy
+  - DOMAIN-SUFFIX,suzukacircuit.jp,Proxy
+  - DOMAIN-SUFFIX,circuitoftheamericas.com,Proxy
+  - DOMAIN-SUFFIX,mexicogp.mx,Proxy
+  - DOMAIN-SUFFIX,f1saopaulo.com.br,Proxy
+  - DOMAIN-SUFFIX,yasmarinacircuit.com,Proxy
+  - DOMAIN-SUFFIX,rosgonki.ru,Proxy
+  - DOMAIN-SUFFIX,f1lasvegasgrandprix.com,Proxy
+# Rule Set
+  - RULE-SET,Bilibili-rules,DIRECT
+  - RULE-SET,Spark-rules,Proxy
+  - RULE-SET,GoogleVoice-rules,Proxy
+#  - RULE-SET,Gdrive-rules,GoogleDrive
+  - RULE-SET,Line-rules,Proxy
+  - RULE-SET,AIGC-rules,Proxy
+#  - RULE-SET,Netflix-rules,Netflix
+#  - RULE-SET,Youtube-rules,Youtube
+#  - RULE-SET,Spotify-rules,Spotify
+  - RULE-SET,Telegram-rules,Proxy
+  - RULE-SET,Twitter-rules,Proxy
+  - RULE-SET,Speedtest-rules,Proxy
+  - RULE-SET,PayPal-rules,Proxy
+  - RULE-SET,TestFlight-rules,Proxy
+ # - RULE-SET,Apple-rules,Apple
+  - RULE-SET,Microsoft-rules,Proxy
+  - RULE-SET,Steam-CN-rules,DIRECT
+# Geo
+  - GEOSITE,google-cn,DIRECT
+  - GEOSITE,youtube,Proxy
+  - GEOSITE,google,Proxy
+  - GEOIP,google,Proxy
+  - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,spotify,Proxy
+  - GEOSITE,whatsapp,Proxy
+  - GEOSITE,apkpure,Proxy
+  - GEOSITE,telegram,Proxy
+  - GEOIP,telegram,Proxy
+  - GEOSITE,netflix,Proxy
+  - GEOIP,netflix,Proxy
+  - GEOSITE,hbo,Proxy
+  - GEOSITE,bilibili,DIRECT
+  - GEOSITE,icloud@cn,DIRECT
+  - GEOSITE,apple@cn,DIRECT
+  - GEOSITE,apple-cn,DIRECT
+  - GEOSITE,apple,Proxy
+  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,facebook,Proxy
+  - GEOSITE,amazon,Proxy
+  - GEOSITE,geolocation-cn,DIRECT
+  - GEOSITE,cn,DIRECT
+  - GEOIP,cn,DIRECT
+  - MATCH,漏网之鱼
