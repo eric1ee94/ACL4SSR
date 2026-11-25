@@ -196,6 +196,21 @@ proxies:
       short-id: 59103decafda763b
     client-fingerprint: chrome
 
+  - name: "SE5-Dmit-Home-US🇺🇸"
+    type: vless
+    server: 179.255.96.94
+    port: 8443
+    uuid: "52218d10-5bbf-4327-80d5-bf6138a380aa"
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    network: tcp
+    servername: "learn.microsoft.com"
+    reality-opts:
+      public-key: "8uEhIDrfiNMw4froZKYc2-8c23fe068d1akciEDX6R4"
+      short-id: "71d37ae27e99acc4"
+    client-fingerprint: "chrome"
+
 proxy-groups:
   - name: "Proxy"
     type: select
@@ -206,6 +221,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -219,6 +235,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -231,6 +248,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -243,6 +261,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -255,6 +274,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -267,6 +287,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -279,6 +300,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -291,6 +313,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -303,6 +326,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -315,6 +339,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -327,6 +352,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -339,6 +365,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -351,6 +378,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -372,6 +400,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -385,6 +414,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -398,6 +428,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -410,6 +441,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -422,6 +454,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -434,6 +467,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
@@ -447,6 +481,7 @@ proxy-groups:
       - SE2-ISIF-HK-COP🇭🇰
       - SE3-Huana-HK🇭🇰
       - SE4-Dmit-US🇺🇸
+      - SE5-Dmit-Home-US🇺🇸
     use:
       - Sub1
       - Sub2
