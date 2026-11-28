@@ -517,7 +517,7 @@ rule-providers:
     type: http
     interval: 86400
     name: AIGC
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
+    url: https://raw.githubusercontent.com/YUDIDIFEI/Scripts/master/rule/Stash/AI/AI.yaml
 #  Formula1-rules:
 #    behavior: classical
 #    type: http
